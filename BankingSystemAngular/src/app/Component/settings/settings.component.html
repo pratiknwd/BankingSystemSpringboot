@@ -1,0 +1,31 @@
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <i class="fa fa-gear mx-3"></i>
+    <h4 class="offcanvas-title" id="offcanvas-basic-title">Settings</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="profile">
+      <div class="profile-img">
+        <i class="fas fa-user"></i>
+      </div>
+    </div>
+    <div class="name">{{ name }}</div>
+    <div class="button-container">
+      <button
+        *ngFor="let btn of buttons"
+        [ngClass]="{ bottom: btn.name === 'Logout' }"
+        class="btn"
+        (click)="navigateTo(btn.link)"
+      >
+        <i [class]="btn.icon"></i>
+        <span>{{ btn.name }}</span>
+      </button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,182 @@
+<back></back>
+<div class="container mt-5 py-3 px-5">
+  <h2>All Branches</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Branch ID</th>
+        <th>Branch Name (IFSC)</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let branch of branches">
+        <td>{{ branch.branchId }}</td>
+        <td>{{ branch.ifsc }}</td>
+        <td>
+          <a
+            [routerLink]="['/admin/branch-details', branch.branchId]"
+            class="btn btn-info"
+            >View Details</a
+          >
+        </td>
+        <td>
+          <button
+            class="btn btn-warning mx-3"
+            (click)="openEditModal(branch, editModal)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn btn-danger mx-2"
+            (click)="openDeleteModal(branch, content)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a [routerLink]="['/admin/adminHome']" class="btn btn-secondary mt-3"
+    >Back to Admin Home</a
+  >
+  <!-- edit modal -->
+  <ng-template #editModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Edit Branch</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <form (ngSubmit)="updateBranch()">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="ifsc" class="form-label">IFSC</label>
+          <input
+            type="text"
+            class="form-control"
+            id="ifsc"
+            [(ngModel)]="branchToEdit.ifsc"
+            name="ifsc"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="buildingName" class="form-label">Building Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="buildingName"
+            [(ngModel)]="branchToEdit.address.buildingName"
+            name="buildingName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="street" class="form-label">Street</label>
+          <input
+            type="text"
+            class="form-control"
+            id="street"
+            [(ngModel)]="branchToEdit.address.street"
+            name="street"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            [(ngModel)]="branchToEdit.address.city"
+            name="city"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="state" class="form-label">State</label>
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            [(ngModel)]="branchToEdit.address.state"
+            name="state"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            id="country"
+            [(ngModel)]="branchToEdit.address.country"
+            name="country"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="zipcode" class="form-label">Zipcode</label>
+          <input
+            type="number"
+            class="form-control"
+            id="zipcode"
+            [(ngModel)]="branchToEdit.address.zipcode"
+            name="zipcode"
+            required
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="modal.dismiss('cancel click')"
+        >
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+  </ng-template>
+  <!-- Delete modal -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Confirm Deletion</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to delete the branch:
+      <strong>{{ selectedBranch?.ifsc }}</strong
+      >?
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="modal.dismiss('cancel click')"
+      >
+        No
+      </button>
+      <button type="button" class="btn btn-danger" (click)="deleteBranch()">
+        Yes, Delete
+      </button>
+    </div>
+  </ng-template>
+  <div>
+    <!-- <button [routerLink]="['/admin/add-bank']" class="btn btn-success mt-3">Add new Bank</button> -->
+    <button [routerLink]="['/admin/add-bank']" class="btn-floating">
+      <span class="icon">+</span>
+    </button>
+  </div>
+</div>

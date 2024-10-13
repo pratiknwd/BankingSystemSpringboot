@@ -1,0 +1,276 @@
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<back></back>
+<div class="form-container">
+  <h2 class="heading mb-4">{{ heading }}</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <div class="input-container">
+        <i class="fas fa-user"></i>
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          class="form-control"
+          placeholder="Enter Name"
+        />
+      </div>
+      <div
+        *ngIf="
+          profileForm.get('name')?.invalid &&
+          (profileForm.get('name')?.touched || profileForm.get('name')?.dirty)
+        "
+        class="error"
+      >
+        *Name is required.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <div class="input-container">
+        <i class="fas fa-envelope"></i>
+        <input
+          type="email"
+          formControlName="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter Email"
+        />
+      </div>
+      <div
+        *ngIf="
+          profileForm.get('email')?.invalid &&
+          (profileForm.get('email')?.touched || profileForm.get('email')?.dirty)
+        "
+        class="error"
+      >
+        <div *ngIf="profileForm.get('email')?.errors?.['required']">
+          *Email is required.
+        </div>
+        <div *ngIf="profileForm.get('email')?.errors?.['email']">
+          *Invalid email format.
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div formGroupName="address">
+      <div class="form-group">
+        <label for="buildingName">Building Name</label>
+        <div class="input-container">
+          <i class="fas fa-building"></i>
+          <input
+            type="text"
+            formControlName="buildingName"
+            id="buildingName"
+            class="form-control"
+            placeholder="Enter Building Name"
+          />
+        </div>
+        <div
+          *ngIf="
+            profileForm.get('address.buildingName')?.invalid &&
+            (profileForm.get('address.buildingName')?.touched ||
+              profileForm.get('address.buildingName')?.dirty)
+          "
+          class="error"
+        >
+          *Building Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street</label>
+        <div class="input-container">
+          <i class="fas fa-road"></i>
+          <input
+            type="text"
+            formControlName="street"
+            id="street"
+            class="form-control"
+            placeholder="Enter Street"
+          />
+        </div>
+        <div
+          *ngIf="
+            profileForm.get('address.street')?.invalid &&
+            (profileForm.get('address.street')?.touched ||
+              profileForm.get('address.street')?.dirty)
+          "
+          class="error"
+        >
+          *Street is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <div class="input-container">
+          <i class="fas fa-city"></i>
+          <input
+            type="text"
+            formControlName="city"
+            id="city"
+            class="form-control"
+            placeholder="Enter City"
+          />
+        </div>
+        <div
+          *ngIf="
+            profileForm.get('address.city')?.invalid &&
+            (profileForm.get('address.city')?.touched ||
+              profileForm.get('address.city')?.dirty)
+          "
+          class="error"
+        >
+          *City is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <div class="input-container">
+          <i class="fas fa-flag"></i>
+          <input
+            type="text"
+            formControlName="state"
+            id="state"
+            class="form-control"
+            placeholder="Enter State"
+          />
+        </div>
+        <div
+          *ngIf="
+            profileForm.get('address.state')?.invalid &&
+            (profileForm.get('address.state')?.touched ||
+              profileForm.get('address.state')?.dirty)
+          "
+          class="error"
+        >
+          *State is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <div class="input-container">
+          <i class="fas fa-globe"></i>
+          <input
+            type="text"
+            formControlName="country"
+            id="country"
+            class="form-control"
+            placeholder="Enter Country"
+          />
+        </div>
+        <div
+          *ngIf="
+            profileForm.get('address.country')?.invalid &&
+            (profileForm.get('address.country')?.touched ||
+              profileForm.get('address.country')?.dirty)
+          "
+          class="error"
+        >
+          *Country is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <div class="input-container">
+          <i class="fas fa-map-pin"></i>
+          <input
+            type="text"
+            formControlName="zipcode"
+            id="zipcode"
+            class="form-control"
+            placeholder="Enter Zipcode"
+          />
+        </div>
+        <div
+          *ngIf="
+            profileForm.get('address.zipcode')?.invalid &&
+            (profileForm.get('address.zipcode')?.touched ||
+              profileForm.get('address.zipcode')?.dirty)
+          "
+          class="error"
+        >
+          <div *ngIf="profileForm.get('address.zipcode')?.errors?.['required']">
+            *Zipcode is required.
+          </div>
+          <div *ngIf="profileForm.get('address.zipcode')?.errors?.['pattern']">
+            *Zipcode must be numeric.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <div class="input-container">
+        <i class="fas fa-venus-mars"></i>
+        <select formControlName="gender" id="gender" class="form-control">
+          <option value="" disabled>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          profileForm.get('gender')?.invalid &&
+          (profileForm.get('gender')?.touched ||
+            profileForm.get('gender')?.dirty)
+        "
+        class="error"
+      >
+        *Gender is required.
+      </div>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <div class="input-container">
+        <i class="fas fa-phone"></i>
+        <input
+          type="text"
+          formControlName="phoneNumber"
+          id="phoneNumber"
+          class="form-control"
+          placeholder="Enter Phone Number"
+        />
+      </div>
+      <div
+        *ngIf="
+          profileForm.get('phoneNumber')?.invalid &&
+          (profileForm.get('phoneNumber')?.touched ||
+            profileForm.get('phoneNumber')?.dirty)
+        "
+        class="error"
+      >
+        *Phone Number is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-submit"
+      [disabled]="profileForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

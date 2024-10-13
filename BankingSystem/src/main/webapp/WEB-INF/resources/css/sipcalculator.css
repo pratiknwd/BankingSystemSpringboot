@@ -1,0 +1,86 @@
+@charset "ISO-8859-1";
+
+.container {
+	margin-top: 50px;
+}
+
+#age, #years, #return {
+	width: 20%;
+}
+
+.years {
+	display: flex;
+	align-items: center;
+}
+
+.years p {
+	margin: 0;
+	margin-left: 1.3rem;
+}
+
+form {
+	border: 0.3px solid grey;
+	padding: 2rem;
+	padding-right: 4.5rem;
+}
+
+.form-row {
+	justify-content: space-between;
+}
+
+.header-text {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: red;
+	margin-bottom:2rem;
+}
+
+.sub-header-text {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: black;
+	margin-bottom:2rem;
+}
+
+.calculate-btn {
+	background-color: red;
+	color: white;
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.btn {
+	margin: auto;
+	display: block;
+	margin-top: 1.3rem;
+	padding: 5px 26px;
+	border-radius: 7px;
+	font-weight: 600;
+}
+
+#disclaimer {
+	margin-top:5px;
+	color: grey;
+	font-size: 12px;
+}
+
+.result-table {
+	margin-top: 20px;
+	display: none;
+}
+
+.blue-text {
+	color: blue;
+}
+
+.red-text {
+	color: red;
+}

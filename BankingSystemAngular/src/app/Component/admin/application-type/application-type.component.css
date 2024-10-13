@@ -1,0 +1,78 @@
+.container {
+    padding-top: 20px;
+  }
+  .list-group-item {
+    margin-bottom: 10px;
+  }
+  .float-right {
+    float: right;
+  }
+
+  .container {
+    padding-top: 20px;
+  }
+  .list-group-item {
+    margin-bottom: 10px;
+  }
+  .float-right {
+    float: right;
+  }
+  
+  
+.btn-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(121, 234, 121);
+  color: white;
+  border: 2px solid rgb(121, 234, 121);
+  border-radius: 50%;
+  font-size: 24px;
+  text-align: center;
+  line-height: 46px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+}
+
+.btn-floating:hover {
+  width: 200px;
+  border-radius: 30px;
+  background-color: rgb(121, 234, 121);
+}
+
+.btn-floating .icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+
+.btn-floating::before {
+  content: 'Add Application Type';
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  position: absolute;
+  left: 31px;
+  top: 2px;
+  white-space: nowrap;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.btn-floating:hover .icon {
+  left: 10px;
+}
+
+.btn-floating:hover::before {
+  opacity: 1;
+}
+ 
+  

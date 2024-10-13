@@ -1,0 +1,135 @@
+.block-unblock-container {
+  max-width: 700px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.page-heading {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+}
+
+.account-details-container {
+  margin-top: 15px;
+}
+
+.account-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  padding: 30px;
+  text-align: left;
+}
+
+.action-button {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.account-card p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.button-group {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button-group .btn {
+  width: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+}
+
+.btn-success {
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+}
+
+.btn-danger:hover,
+.btn-success:hover {
+  opacity: 0.9;
+}
+
+.search-button {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* alert */
+.slide-in {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideDown 0.5s forwards, fadeOut 0.5s 4.5s forwards;
+  z-index: 100;
+}
+
+@keyframes slideDown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 60px;
+  }
+}
+
+.slide-out {
+  animation: slideUp 0.5s forwards;
+}
+
+@keyframes slideUp {
+  from {
+    top: 20px;
+    opacity: 1;
+  }
+  to {
+    top: -100px;
+    opacity: 0;
+  }
+}
+
+ngb-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  min-width: 35%;
+  padding: 10px 20px;
+  text-align: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}

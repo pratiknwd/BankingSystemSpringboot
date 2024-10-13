@@ -1,0 +1,23 @@
+select.form-select {
+  width: 200px;
+}
+.back i {
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 95px;
+  left: 40px;
+}
+.page-item.active .page-link {
+  background-color: #000000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.page-link {
+  color: #000000;
+}
+
+.page-item.disabled .page-link {
+  color: #7e8892;
+}

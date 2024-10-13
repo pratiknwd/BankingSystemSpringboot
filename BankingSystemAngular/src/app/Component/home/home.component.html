@@ -1,0 +1,29 @@
+<alert></alert>
+<div class="container">
+  <div class="row" *ngFor="let card of cards">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <i class="{{ card.icon }}"></i>
+          <h5 class="card-title">{{ card.title }}</h5>
+          <p class="card-text">{{ card.text }}</p>
+          <!-- For Setting -->
+          <a
+            *ngIf="card.title === 'Setting'; else otherCard"
+            class="btn btn-primary"
+            (click)="openSettings()"
+          >
+            {{ card.button_text }}
+          </a>
+          <ng-template #otherCard>
+            <a (click)="navigateTo(card)" class="btn btn-primary">{{
+              card.button_text
+            }}</a>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- settings component -->
+<app-settings></app-settings>

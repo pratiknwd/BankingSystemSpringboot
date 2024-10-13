@@ -1,0 +1,53 @@
+<back></back>
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<div class="block-unblock-container">
+  <h2 class="page-heading">Block/Unblock Accounts</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Enter Account Number"
+      [(ngModel)]="accountNumber"
+      class="search-input"
+    />
+    <button (click)="searchAccount()" class="btn btn-dark search-button">
+      Search
+    </button>
+  </div>
+
+  <div *ngIf="account" class="account-details-container">
+    <div class="account-card">
+      <p><strong>Account ID:</strong> {{ account.accountId }}</p>
+      <p><strong>Customer Name:</strong> {{ account.customer.name }}</p>
+      <p><strong>Branch IFSC:</strong> {{ account.branch.ifsc }}</p>
+      <p><strong>Account Type:</strong> {{ account.accountType }}</p>
+      <p><strong>Account Number:</strong> {{ account.accountNumber }}</p>
+      <p><strong>Balance:</strong> ${{ account.balance }}</p>
+      <p><strong>Account Status:</strong> {{ account.accountStatus }}</p>
+
+      <div class="button-group">
+        <button
+          *ngIf="account.accountStatus === 'Active'"
+          (click)="blockAccount()"
+          class="btn btn-danger action-button"
+        >
+          Block
+        </button>
+        <button
+          *ngIf="account.accountStatus === 'Blocked'"
+          (click)="unblockAccount()"
+          class="btn btn-success action-button"
+        >
+          Unblock
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

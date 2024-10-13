@@ -1,0 +1,228 @@
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<div class="back">
+  <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
+</div>
+<div class="form-container">
+  <h2 class="heading mb-4">Money Transfer</h2>
+  <form [formGroup]="moneyTransfer" (ngSubmit)="onSubmit()">
+    <!-- Account Number -->
+    <div class="form-group">
+      <label for="accountNumber">Account Number</label>
+      <div class="input-container">
+        <i class="fa-solid fa-user"></i>
+        <select
+          formControlName="accountNumber"
+          id="accountNumber"
+          class="form-control"
+        >
+          <option value="" disabled>Select Account Number</option>
+          <option *ngFor="let account of accounts" [value]="account">
+            {{ account }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          moneyTransfer.get('accountNumber')?.invalid &&
+          moneyTransfer.get('accountNumber')?.touched
+        "
+        class="error"
+      >
+        *Account Number cannot be empty.
+      </div>
+    </div>
+
+    <!-- Beneficiary Account Number -->
+    <div class="form-group">
+      <label for="beneficiaryAccountNumber">Beneficiary Account Number</label>
+      <div class="input-container">
+        <i class="fa-solid fa-user"></i>
+        <select
+          formControlName="beneficiaryAccountNumber"
+          id="beneficiaryAccountNumber"
+          class="form-control"
+        >
+          <option value="" disabled>Select Beneficiary Account Number</option>
+          <option
+            *ngFor="let beneficiary of beneficiaries"
+            [value]="beneficiary.beneficiaryAccountNumber"
+          >
+            {{ beneficiary.beneficiaryAccountNumber }} &nbsp; - &nbsp;
+            {{ beneficiary.beneficiaryName }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          moneyTransfer.get('beneficiaryAccountNumber')?.invalid &&
+          moneyTransfer.get('beneficiaryAccountNumber')?.touched
+        "
+        class="error"
+      >
+        *Beneficiary Account Number cannot be empty.
+      </div>
+    </div>
+
+    <!-- Transaction Type -->
+    <div class="form-group">
+      <label for="transactionType">Transaction Type</label>
+      <div class="input-container">
+        <i class="fa-solid fa-exchange-alt"></i>
+        <select
+          formControlName="transactionType"
+          id="transactionType"
+          class="form-control"
+        >
+          <option value="" disabled>Select Transaction Type</option>
+          <option *ngFor="let type of transactionTypes" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          moneyTransfer.get('transactionType')?.invalid &&
+          moneyTransfer.get('transactionType')?.touched
+        "
+        class="error"
+      >
+        *Transaction Type is required.
+      </div>
+    </div>
+    <!-- Transaction Channel -->
+    <div class="form-group">
+      <label for="transactionChannel">Transaction Channel</label>
+      <div class="input-container">
+        <i class="fa-solid fa-network-wired"></i>
+        <input
+          type="text"
+          formControlName="transactionChannel"
+          id="transactionChannel"
+          class="form-control faded"
+          [readonly]="true"
+          value="Internet_Banking"
+        />
+      </div>
+      <div
+        *ngIf="
+          moneyTransfer.get('transactionChannel')?.invalid &&
+          moneyTransfer.get('transactionChannel')?.touched
+        "
+        class="error"
+      >
+        *Transaction Channel is required.
+      </div>
+    </div>
+
+    <!-- Amount -->
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <div class="input-container">
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+        <input
+          type="number"
+          formControlName="amount"
+          id="amount"
+          class="form-control"
+          placeholder="Enter Amount"
+        />
+      </div>
+      <div
+        *ngIf="
+          moneyTransfer.get('amount')?.invalid &&
+          moneyTransfer.get('amount')?.touched
+        "
+        class="error"
+      >
+        <div
+          *ngIf="
+            moneyTransfer.get('amount')?.invalid &&
+            (moneyTransfer.get('amount')?.touched ||
+              moneyTransfer.get('amount')?.dirty)
+          "
+        >
+          *Amount is required.
+        </div>
+        <div *ngIf="moneyTransfer.get('amount')?.errors?.['min']">
+          *Minimum transferable amount is 100.
+        </div>
+      </div>
+    </div>
+
+    <!-- Remarks -->
+    <div class="form-group">
+      <label for="remarks">Remarks</label>
+      <div class="input-container">
+        <i class="fa-solid fa-comment-alt"></i>
+        <input
+          type="text"
+          formControlName="remarks"
+          id="remarks"
+          class="form-control"
+          placeholder="Enter Remarks"
+        />
+      </div>
+    </div>
+
+    <!-- TPIN -->
+    <div class="form-group">
+      <label for="tPin">TPIN</label>
+      <div class="input-container">
+        <i class="fa-solid fa-key"></i>
+        <input
+          type="password"
+          formControlName="tPin"
+          id="tPin"
+          class="form-control"
+          placeholder="Enter TPIN"
+        />
+      </div>
+      <div
+        class="error"
+        *ngIf="
+            moneyTransfer.get('tPin')?.invalid &&
+            moneyTransfer.get('tPin')?.touched &&
+            moneyTransfer.get('tPin')?.errors?.['pattern']
+          "
+      >
+        *TPIN should be numeric only.
+      </div>
+      <div
+        class="error"
+        *ngIf="
+            moneyTransfer.get('tPin')?.invalid &&
+            moneyTransfer.get('tPin')?.touched &&
+            moneyTransfer.get('tPin')?.errors?.['maxlength']
+          "
+      >
+        *TPIN cannot be more than 6 digits.
+      </div>
+      <div
+        class="error"
+        *ngIf="
+            moneyTransfer.get('tPin')?.invalid &&
+            moneyTransfer.get('tPin')?.touched &&
+            moneyTransfer.get('tPin')?.errors?.['required']
+          "
+      >
+        *TPIN is required to complete the transaction.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-submit"
+      [disabled]="moneyTransfer.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

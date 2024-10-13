@@ -1,0 +1,7 @@
+.back i {
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 95px;
+  left: 45px;
+}

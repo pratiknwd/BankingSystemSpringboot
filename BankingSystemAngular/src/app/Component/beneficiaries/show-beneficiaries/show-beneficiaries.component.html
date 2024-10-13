@@ -1,0 +1,70 @@
+<h2 class="text-center my-4">Beneficiaries</h2>
+
+<back></back>
+
+<h2 *ngIf="beneficiaries.length === 0" class="text-center my-5">
+  No Beneficiaries Added!
+</h2>
+
+<div *ngIf="beneficiaries.length > 0" class="beneficiary container mt-5">
+  <div ngbAccordion [closeOthers]="true" id="accordion">
+    <div *ngFor="let beneficiary of beneficiaries" ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button
+          ngbAccordionButton
+          class="d-flex justify-content-between"
+          aria-expanded="false"
+        >
+          <span>
+            <i class="fas fa-user"></i> {{ beneficiary.beneficiaryName }}
+          </span>
+          <span
+            [ngClass]="{
+              'status-active': beneficiary.beneficiaryStatus === 'Approved',
+              'status-inactive':
+                beneficiary.beneficiaryStatus === 'Pending' ||
+                beneficiary.beneficiaryStatus === 'Rejected'
+            }"
+          >
+            <i class="fas fa-info-circle" style="color: black"></i>
+            {{ beneficiary.beneficiaryStatus | uppercase }}
+          </span>
+        </button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ul class="list-unstyled">
+            <li>
+              <i class="fas fa-id-card"></i> ID: {{ beneficiary.beneficiaryId }}
+            </li>
+            <li>
+              <i class="fas fa-user"></i> Name:
+              {{ beneficiary.beneficiaryName }}
+            </li>
+            <li>
+              <i class="fas fa-university"></i> Bank:
+              {{ beneficiary.beneficiaryBankName }}
+            </li>
+            <li>
+              <i class="fas fa-cogs"></i> Account Number:
+              {{ beneficiary.beneficiaryAccountNumber }}
+            </li>
+            <li>
+              <i class="fas fa-code"></i> IFSC:
+              {{ beneficiary.beneficiaryIFSC }}
+            </li>
+            <li>
+              <i class="fas fa-info-circle"></i> Status:
+              {{ beneficiary.beneficiaryStatus }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="addBeneficiary">
+  <button (click)="navigateToAddBeneficiary()" class="btn">
+    Add Beneficiary
+  </button>
+</div>

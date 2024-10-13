@@ -1,0 +1,28 @@
+<div class="masterCard">
+  <!-- <div class="circles">
+    <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+  </div> -->
+
+  <div class="card-group">
+    <div class="card">
+      <div class="logo">
+        <img
+          src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/Visa-Logo-PNG-Image.png"
+          alt="Visa"
+        />
+      </div>
+      <div class="chip">
+        <img
+          src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/chip.png"
+          alt="chip"
+        />
+      </div>
+      <div class="number">{{CreditCard.cardNumber | cardNumberFormater}}</div>
+      <div class="name">{{userName | uppercase}}</div>
+      <div class="from">{{CreditCard.expiryDate | dateFormator}}</div>
+      <div class="to">{{CreditCard.cvv}}</div>
+      <div class="ring"></div>
+    </div>
+  </div>
+</div>

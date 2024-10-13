@@ -1,0 +1,135 @@
+<back></back>
+<div class="dashboard">
+  <i class="fa-solid fa-pen-to-square edit" (click)="editPage()"></i>
+  <h2 class="text-center">Customer Dashboard</h2>
+  <div class="profile-section">
+    <div class="username">
+      <div class="img">
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="name mb-2">
+        <strong>{{ customer.name }}</strong>
+        <p class="email">{{ customer.user.email }}</p>
+      </div>
+    </div>
+    <div class="details">
+      <div class="detail-item">
+        <span class="label">Customer ID:</span>
+        <span class="value">{{ customer.customerId }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Username:</span>
+        <span class="value">{{ customer.user.username }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Gender:</span>
+        <span class="value">{{ customer.gender }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Address:</span>
+        <span class="value"
+          >{{ customer.address.buildingName }},&nbsp;{{
+            customer.address.street
+          }},&nbsp;{{ customer.address.city }},&nbsp;{{
+            customer.address.state
+          }},&nbsp;{{ customer.address.zipcode }}</span
+        >
+      </div>
+      <div class="detail-item">
+        <span class="label">Date of Birth:</span>
+        <span class="value">{{ customer.dateOfBirth | date }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Phone Number:</span>
+        <span class="value">{{ "+91-" + customer.phoneNumber }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Account-info  -->
+  <div class="accounts-info mt-3">
+    <h3><strong>Accounts</strong></h3>
+    <div class="notAccountHolder" *ngIf="accounts.length === 0">
+      <h2>No accounts To Preview..!</h2>
+      <button
+        class="btn btn-dark py-2 px-5 mt-3 mb-2"
+        (click)="navigateToAccountApplication()"
+      >
+        Apply
+      </button>
+    </div>
+    <div class="accountHolder" *ngIf="accounts.length > 0">
+      <div ngbAccordion [closeOthers]="true" *ngFor="let account of accounts">
+        <div ngbAccordionItem>
+          <h2 ngbAccordionHeader>
+            <button ngbAccordionButton class="accordion-btn">
+              <span class="account-type"
+                ><i class="fa fa-briefcase mx-2"></i
+                >{{ account.accountType }}</span
+              >
+              <span class="accountStatus">
+                <div
+                  class="glowing-dot"
+                  [ngClass]="{
+                    active: account.accountStatus === 'Active',
+                    blocked: account.accountStatus === 'Blocked'
+                  }"
+                ></div>
+                <span
+                  class="status"
+                  [ngClass]="{
+                    'text-success': account.accountStatus === 'Active',
+                    'text-danger': account.accountStatus === 'Blocked'
+                  }"
+                >
+                  {{ account.accountStatus }}
+                </span>
+              </span>
+            </button>
+          </h2>
+          <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+              <div class="account-details">
+                <p>
+                  <label for="accountId"
+                    ><i class="fa fa-id-card"></i> Account ID:</label
+                  >
+                  <strong> {{ account.accountId }}</strong>
+                </p>
+                <p>
+                  <label for="branchAddress"
+                    ><i class="fa fa-home"></i> Branch Addresss:</label
+                  >
+                  <strong
+                    >{{ account.branch.address.city }},
+                    {{ account.branch.address.state }},{{
+                      account.branch.address.zipcode
+                    }}</strong
+                  >
+                </p>
+                <p>
+                  <label><i class="fa fa-university"></i> IFSC:</label>
+                  <strong>{{ account.branch.ifsc }}</strong>
+                </p>
+                <p>
+                  <label
+                    ><i class="fa fa-credit-card"></i> Account Number:</label
+                  >
+                  <strong>{{ account.accountNumber }}</strong>
+                </p>
+                <p>
+                  <label><i class="fa fa-wallet"></i> Balance:</label>
+                  <strong>{{ account.balance | currency : "INR" }}</strong>
+                </p>
+                <p>
+                  <label for=""><i class="fa fa-key"></i> TPIN:</label
+                  ><strong>{{ account.tpin || "Blocked" }}</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

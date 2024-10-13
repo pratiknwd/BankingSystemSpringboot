@@ -1,0 +1,18 @@
+<back></back>
+<h2 class="text-center mt-4">Manage Accounts</h2>
+<div class="container">
+  <div class="row" *ngFor="let card of accountFunctionalities">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <i class="{{ card.icon }}"></i>
+          <h5 class="card-title">{{ card.title }}</h5>
+          <p class="card-text">{{ card.description }}</p>
+          <a [routerLink]="card.link" class="btn btn-primary">{{
+            card.buttonText
+          }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

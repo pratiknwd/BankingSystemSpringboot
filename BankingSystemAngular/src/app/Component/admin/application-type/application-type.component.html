@@ -1,0 +1,33 @@
+<back></back>
+<div class="container mt-5 px-5">
+  <h2>Application Types</h2>
+
+  <ul class="list-group">
+    <li *ngFor="let appType of applicationTypes"
+      class="list-group-item d-flex justify-content-between align-items-center">
+      {{ appType.applicationType }}
+      <button class="btn btn-warning" (click)="openModal(content, appType)">Edit</button>
+    </li>
+  </ul>
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">{{ isEditMode ? 'Edit Application Type' : 'Add Application Type' }}</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="form-control" [(ngModel)]="newApplicationType" placeholder="Application Type" />
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+      <button type="button" class="btn btn-primary"
+        (click)="isEditMode ? updateApplicationType() : addApplicationType()">
+        {{ isEditMode ? 'Confirm Edit' : 'Add Application Type' }}
+      </button>
+    </div>
+  </ng-template>
+  <button (click)="openModal(content)" class="btn-floating">
+    <span class="icon">+</span>
+  </button>
+</div>

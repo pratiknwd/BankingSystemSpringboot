@@ -1,0 +1,64 @@
+.beneficiary {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  min-height: 30vh;
+}
+
+#accordion {
+  width: 70%;
+}
+
+#info {
+  display: flex;
+  justify-content: space-between;
+}
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-unstyled {
+  padding-left: 0;
+}
+
+.list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.list-unstyled li i {
+  margin-right: 8px;
+}
+
+/* Hide the default down arrow */
+button::after {
+  display: none;
+}
+
+/* Custom styles for status indicators */
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: red;
+  font-weight: bold;
+}
+
+.addBeneficiary button {
+  margin-top: 10px;
+  display: block;
+  width: 14%;
+  background: black;
+  color: white;
+  padding: 13px 10px;
+  margin: auto;
+  border-radius: 13px;
+}
+
+.addBeneficiary button:hover {
+  background: rgb(70, 70, 70);
+}

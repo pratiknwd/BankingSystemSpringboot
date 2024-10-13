@@ -1,0 +1,109 @@
+<back></back>
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<div class="applications container">
+  <h2 class="text-center mt-3 mb-5">Rejected Beneficiary</h2>
+  <h2 class="text-center my-5" *ngIf="beneficiaryApplications.length === 0">
+    No Application...!
+  </h2>
+  <div class="applicationContent" *ngIf="beneficiaryApplications.length > 0">
+    <div class="search-container mb-4">
+      <input
+        type="text"
+        placeholder="Search by id"
+        [(ngModel)]="searchTerm"
+        class="search-box"
+      />
+    </div>
+
+    <table class="table table-striped table-custom">
+      <thead>
+        <tr>
+          <th class="text-left">Beneficiary ID</th>
+          <th class="text-center">Customer ID</th>
+          <th class="text-right">B-Name</th>
+          <th class="text-center">B-Account No.</th>
+          <th class="text-right">B-Bank Name</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="row-hover"
+          *ngFor="
+            let beneficiary of filteredApplication
+              | paginate
+                : { itemsPerPage: itemsPerPage, currentPage: currentPage }
+          "
+        >
+          <td>{{ beneficiary.beneficiaryId }}</td>
+          <td>
+            {{ beneficiary.customer.customerId }}
+          </td>
+          <td>{{ beneficiary.beneficiaryName }}</td>
+          <td>{{ beneficiary.beneficiaryAccountNumber }}</td>
+          <td>{{ beneficiary.beneficiaryBankName }}</td>
+          <td>
+            <button
+              class="btn btn-success btn-sm mx-2"
+              (click)="approveApplication(beneficiary.beneficiaryId)"
+            >
+              Approve
+            </button>
+            <button
+              class="btn btn-info btn-sm mx-2"
+              (click)="moreInfo(beneficiary.beneficiaryId, content)"
+            >
+              Info
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls
+      (pageChange)="currentPage = $event"
+    ></pagination-controls>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Application Details</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Application ID:</strong> {{ info?.beneficiaryId }}</p>
+
+    <p><strong>Username:</strong> {{ info?.customer?.user?.username }}</p>
+    <p><strong>C-Name:</strong> {{ info?.customer?.name }}</p>
+    <p>
+      <strong>C-address:</strong>
+      {{ info?.customer?.address?.buildingName }},&nbsp;
+      {{ info?.customer?.address?.street }},&nbsp;
+      {{ info?.customer?.address?.city }},&nbsp;{{
+        info?.customer?.address?.state
+      }},&nbsp;{{ info?.customer?.address?.zipcode }}
+    </p>
+    <p>
+      <strong>Beneficiary Account Number:</strong>
+      {{ info?.beneficiaryAccountNumber }}
+    </p>
+    <p><strong>Beneficiary Name</strong> {{ info?.beneficiaryName }}</p>
+    <p>
+      <strong>Beneficiary Bank Name</strong> {{ info?.beneficiaryBankName }}
+    </p>
+    <p><strong>Beneficiary IFSC:</strong> {{ info?.beneficiaryIFSC }}</p>
+  </div>
+</ng-template>

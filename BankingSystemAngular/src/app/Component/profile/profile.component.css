@@ -1,0 +1,212 @@
+.dashboard {
+  margin: 12px;
+  padding: 10px 13px;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.edit{
+  position: absolute;
+  right: 47px;
+  top: 99px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 30px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 3px solid #ddd;
+  padding-bottom: 25px;
+}
+
+.username {
+  flex: 1;
+  text-align: center;
+  border-right: 3px solid #ddd;
+  padding-right: 25px;
+  transition: transform 0.3s ease;
+}
+
+.img {
+  width: 215px;
+  height: 215px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #ddd);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 56px;
+  color: #444;
+}
+
+.img i {
+  font-size: 120px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+}
+
+.name .email {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* Details Section */
+.details {
+  flex: 2;
+  padding-left: 30px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.detail-item:hover {
+  background-color: #f4f4f4;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Account Information Section */
+.accounts-info {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  background: #e8e8e8;
+  border-radius: 17px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.accounts-info h3 {
+  font-size: 24px;
+  color: #222;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #222;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Accordion Button Styling */
+.accordion-btn {
+  display: flex;
+  justify-content: space-between;
+  background-color:  #f9f9f9;
+  border: none;
+  color: #b1aeae;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 13px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-btn:hover {
+  background-color: rgba(184, 184, 184, 0.2);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.accountStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glowing-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 13px;
+}
+
+.glowing-dot.active {
+  background: #28a745;
+  box-shadow: 0 0 10px 2px rgba(40, 167, 69, 0.8);
+}
+
+.glowing-dot.blocked {
+  background: #d40015;
+  box-shadow: 0 0 10px 2px rgba(211, 1, 22, 0.8);
+}
+
+.account-type,
+.accountStatus .status {
+  font-size: 15px;
+  color: #000000;
+  font-weight: bolder;
+}
+
+/* Account Details Styling */
+.account-details {
+  display: flex;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.account-details p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 23%;
+  margin: 10px 5px;
+  font-size: 16px;
+  color: #000000;
+}
+
+.account-details i {
+  margin-right: 10px;
+  color: #000000;
+}
+
+button::after {
+  display: none;
+}

@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <i class="fa-solid fa-bars mx-2" (click)="openSettings()"></i> V-PRY
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/home">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/application/view"
+          >
+            <i class="fas fa-folder-open"></i> Check Application
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-calculator"></i> Financial Tools
+          </a>
+          <ul class="dropdown-menu custom-dropdown-menu">
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/financialtools/sipCalculator"
+              >
+                <i class="fas fa-chart-line"></i> SIP Calculator
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/financialtools/ppfCalculator"
+              >
+                <i class="fas fa-building"></i> PPF Calculator
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/financialtools/gstCalculator"
+              >
+                <i class="fas fa-receipt"></i> GST Calculator
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/financialtools/ciCalculator"
+              >
+                <i class="fas fa-percent"></i> Compound Interest Calculator
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile">
+            <i class="fas fa-user"></i> Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- settings component -->
+<app-settings></app-settings>

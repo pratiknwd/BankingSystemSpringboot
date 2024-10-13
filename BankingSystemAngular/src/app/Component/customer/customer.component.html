@@ -1,0 +1,334 @@
+<div id="createForm">
+  <div class="mainContainer">
+    <div class="container">
+      <div class="logiform-container py-4">
+        <div
+          class="flex-container d-flex flex-wrap justify-content-center bg-light p-0"
+        >
+          <div class="column d-block p-3 p-md-4 p-lg-5 p getstarted-col">
+            <div
+              class="d-flex gap-4 content p-3 px-md-4 py-md-5 px-lg-5 child-w-100 flex-wrap position-relative h-100 align-items-center"
+            >
+              <div class="text-content position-relative">
+                <span class="text-secondary2">Hi Welcome!</span>
+                <h2 class="text-white">Let's Get Started</h2>
+                <p class="text-secondary2 mt-4">
+                  Create a free account and get free access to full features for
+                  7 days. We invite you to join us and get a better experience.
+                </p>
+              </div>
+              <div class="content-icon position-relative">
+                <img
+                  src="https://cdn.pixabay.com/photo/2016/06/15/16/16/man-1459246_1280.png"
+                  alt=""
+                  class="w-100"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column d-block p-3 d-flex align-items-center justify-content-center h-100"
+          >
+            <div class="content">
+              <div class="form-wrapper py-4">
+                <h2 class="mb-4 mt-4 mx-5 text-center">
+                  Customer Details Form
+                </h2>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                  <!-- Name Field -->
+                  <div class="form-input mb-3 p-0">
+                    <label for="name" class="text-secondary mt-4">Name</label>
+                    <div class="input-relative position-relative mt-1 mt-lg-2">
+                      <input
+                        formControlName="name"
+                        type="text"
+                        class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                        placeholder="Enter Your Name"
+                      />
+                      <div
+                        *ngIf="
+                          registrationForm.get('name')?.invalid &&
+                          (registrationForm.get('name')?.dirty ||
+                            registrationForm.get('name')?.touched)
+                        "
+                        class="text-danger small"
+                      >
+                        *Name is required
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Address Fields -->
+                  <div formGroupName="addressDto">
+                    <div class="form-input mb-3 p-0">
+                      <label for="buildingName" class="text-secondary mt-4"
+                        >Building Name</label
+                      >
+                      <div
+                        class="input-relative position-relative mt-1 mt-lg-2"
+                      >
+                        <input
+                          formControlName="buildingName"
+                          type="text"
+                          class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                          placeholder="Enter BuildingName"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('addressDto.buildingName')
+                              ?.invalid &&
+                            (registrationForm.get('addressDto.buildingName')
+                              ?.dirty ||
+                              registrationForm.get('addressDto.buildingName')
+                                ?.touched)
+                          "
+                          class="text-danger small"
+                        >
+                          *Building Name is required
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-input mb-3 p-0">
+                      <label for="street" class="text-secondary mt-4"
+                        >Street</label
+                      >
+                      <div
+                        class="input-relative position-relative mt-1 mt-lg-2"
+                      >
+                        <input
+                          formControlName="street"
+                          type="text"
+                          class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                          placeholder="Enter Street"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('addressDto.street')
+                              ?.invalid &&
+                            (registrationForm.get('addressDto.street')?.dirty ||
+                              registrationForm.get('addressDto.street')
+                                ?.touched)
+                          "
+                          class="text-danger small"
+                        >
+                          *Street is required
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-input mb-3 p-0">
+                      <label for="city" class="text-secondary mt-4">City</label>
+                      <div
+                        class="input-relative position-relative mt-1 mt-lg-2"
+                      >
+                        <input
+                          formControlName="city"
+                          type="text"
+                          class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                          placeholder="Enter Your City"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('addressDto.city')?.invalid &&
+                            (registrationForm.get('addressDto.city')?.dirty ||
+                              registrationForm.get('addressDto.city')?.touched)
+                          "
+                          class="text-danger small"
+                        >
+                          *City is required
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-input mb-3 p-0">
+                      <label for="state" class="text-secondary mt-4"
+                        >State</label
+                      >
+                      <div
+                        class="input-relative position-relative mt-1 mt-lg-2"
+                      >
+                        <input
+                          formControlName="state"
+                          type="text"
+                          class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                          placeholder="Enter State"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('addressDto.state')?.invalid &&
+                            (registrationForm.get('addressDto.state')?.dirty ||
+                              registrationForm.get('addressDto.state')?.touched)
+                          "
+                          class="text-danger small"
+                        >
+                          *State is required
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-input mb-3 p-0">
+                      <label for="country" class="text-secondary mt-4"
+                        >Country</label
+                      >
+                      <div
+                        class="input-relative position-relative mt-1 mt-lg-2"
+                      >
+                        <input
+                          formControlName="country"
+                          type="text"
+                          class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                          placeholder="Enter Country"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('addressDto.country')
+                              ?.invalid &&
+                            (registrationForm.get('addressDto.country')
+                              ?.dirty ||
+                              registrationForm.get('addressDto.country')
+                                ?.touched)
+                          "
+                          class="text-danger small"
+                        >
+                          *Country is required
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-input mb-3 p-0">
+                      <label for="zipcode" class="text-secondary mt-4"
+                        >Zipcode</label
+                      >
+                      <div
+                        class="input-relative position-relative mt-1 mt-lg-2"
+                      >
+                        <input
+                          formControlName="zipcode"
+                          type="number"
+                          class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                          placeholder="Enter Your Zipcode"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('addressDto.zipcode')
+                              ?.invalid &&
+                            (registrationForm.get('addressDto.zipcode')
+                              ?.dirty ||
+                              registrationForm.get('addressDto.zipcode')
+                                ?.touched)
+                          "
+                          class="text-danger small"
+                        >
+                          *Zipcode must be 6 digits
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Gender Field -->
+                  <div class="form-input mb-3 p-0">
+                    <label for="gender" class="text-secondary mt-4"
+                      >Gender</label
+                    >
+                    <div class="input-relative position-relative mt-1 mt-lg-2">
+                      <select
+                        formControlName="gender"
+                        class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                      >
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          registrationForm.get('gender')?.invalid &&
+                          (registrationForm.get('gender')?.dirty ||
+                            registrationForm.get('gender')?.touched)
+                        "
+                        class="text-danger small"
+                      >
+                        *Gender is required
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="form-input mb-3 p-0">
+                    <label for="phoneNumber" class="text-secondary mt-4"
+                      >Phone Number</label
+                    >
+                    <div class="input-relative position-relative mt-1 mt-lg-2">
+                      <input
+                        formControlName="phoneNumber"
+                        type="number"
+                        class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                        placeholder="Enter Your phoneNumber"
+                      />
+                      <div
+                        *ngIf="
+                          registrationForm.get('phoneNumber')?.invalid &&
+                          (registrationForm.get('phoneNumber')?.dirty ||
+                            registrationForm.get('phoneNumber')?.touched)
+                        "
+                        class="text-danger small"
+                      >
+                        *Phone number must be 10 digits
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Date of Birth -->
+                  <div class="form-input mb-3 p-0">
+                    <label for="dateOfBirth" class="text-secondary mt-4"
+                      >Date of Birth</label
+                    >
+                    <div class="input-relative position-relative mt-1 mt-lg-2">
+                      <input
+                        formControlName="dateOfBirth"
+                        type="date"
+                        class="default-input rounded-pill py-1 ps-3 py-lg-2"
+                        [attr.max]="maxDate"
+                      />
+                      <div
+                        *ngIf="
+                          registrationForm.get('dateOfBirth')?.invalid &&
+                          (registrationForm.get('dateOfBirth')?.dirty ||
+                            registrationForm.get('dateOfBirth')?.touched)
+                        "
+                        class="text-danger small"
+                      >
+                        *Date of birth is required
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-submit mt-5">
+                    <button
+                      id="btnCreateAccount"
+                      type="submit"
+                      class="btn btn-success w-100 rounded-pill py-lg-2 mt-1 mt-lg-2"
+                    >
+                      Submit
+                    </button>
+                  </div>
+
+                  <!-- <div class="form-submit mt-2">
+                    <button
+                      type="button"
+                      class="btn btn-secondary w-100 rounded-pill py-lg-2"
+                      (click)="goBack()"
+                    >
+                      Back
+                    </button>
+                  </div> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

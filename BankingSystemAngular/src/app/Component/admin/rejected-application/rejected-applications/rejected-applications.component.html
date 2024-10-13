@@ -1,0 +1,106 @@
+<back></back>
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<div class="applications container">
+  <h2 class="text-center mt-3 mb-5">Rejected Applications</h2>
+  <h2 class="text-center my-5" *ngIf="rejectedApplication.length === 0">
+    No Pending Applications...!
+  </h2>
+  <div class="applicationContent" *ngIf="rejectedApplication.length > 0">
+    <div class="search-container mb-4">
+      <input
+        type="text"
+        placeholder="Search by applicationnumber"
+        [(ngModel)]="searchTerm"
+        class="search-box"
+      />
+    </div>
+
+    <table class="table table-striped table-custom">
+      <thead>
+        <tr>
+          <th class="text-left">Application ID</th>
+          <th class="text-center">Customer ID</th>
+          <th class="text-right">App. Number</th>
+          <th class="text-center">App. Type</th>
+          <th class="text-right">App. Date</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="row-hover"
+          *ngFor="
+            let application of filteredApplication
+              | paginate
+                : { itemsPerPage: itemsPerPage, currentPage: currentPage }
+          "
+        >
+          <td class="text-left">{{ application.applicationId }}</td>
+          <td class="text-center">{{ application.customer.customerId }}</td>
+          <td class="text-right">{{ application.applicationNumber }}</td>
+          <td class="text-center">{{ application.applicationType }}</td>
+          <td class="text-right">
+            {{ application.dateOfApplication | dateOnly }}
+          </td>
+          <td class="text-center">
+            <button
+              class="btn btn-success btn-sm mx-2"
+              (click)="approveApplication(application.applicationNumber,application.applicationType)"
+            >
+              Approve
+            </button>
+
+            <button
+              class="btn btn-info btn-sm mx-2"
+              (click)="moreInfo(application.applicationId, content)"
+            >
+              Info
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls
+      (pageChange)="currentPage = $event"
+    ></pagination-controls>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Application Details</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Application ID:</strong> {{ info?.applicationId }}</p>
+    <p><strong>C-ID:</strong> {{ info?.customer?.customerId }}</p>
+    <p><strong>C-Name:</strong> {{ info?.customer?.name }}</p>
+    <p>
+      <strong>C-address:</strong>
+      {{ info?.customer?.address?.buildingName }},&nbsp;
+      {{ info?.customer?.address?.street }},&nbsp;
+      {{ info?.customer?.address?.city }},&nbsp;{{
+        info?.customer?.address?.state
+      }},&nbsp;{{ info?.customer?.address?.zipcode }}
+    </p>
+    <p><strong>Application Number:</strong> {{ info?.applicationNumber }}</p>
+    <p><strong>Application Type:</strong> {{ info?.applicationType }}</p>
+    <p><strong>Application Date:</strong> {{ info?.dateOfApplication }}</p>
+    <p *ngIf="info?.branchIfsc">
+      <strong>Branch IFSC:</strong> {{ info?.branchIfsc }}
+    </p>
+  </div>
+</ng-template>

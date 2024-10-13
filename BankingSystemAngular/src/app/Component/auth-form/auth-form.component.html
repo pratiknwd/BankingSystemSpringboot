@@ -1,0 +1,252 @@
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+
+<div class="container" [class.sign-up-mode]="isSignUpMode">
+  <div class="forms-container">
+    <div class="signin-signup">
+      <!-- Sign In Form -->
+      <form
+        [formGroup]="signInForm"
+        (ngSubmit)="onSignIn()"
+        class="sign-in-form"
+      >
+        <h2 class="title">Sign in</h2>
+
+        <!-- Username Field -->
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            formControlName="username"
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+        <div
+          *ngIf="
+            signInForm.get('username')?.touched &&
+            signInForm.get('username')?.invalid
+          "
+          class="error"
+        >
+          <small *ngIf="signInForm.get('username')?.hasError('required')"
+            >*Username is required.</small
+          >
+          <small *ngIf="signInForm.get('username')?.hasError('minlength')"
+            >*Username must be at least 5 characters long.</small
+          >
+        </div>
+
+        <!-- Password Field -->
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div
+          *ngIf="
+            signInForm.get('password')?.touched &&
+            signInForm.get('password')?.invalid
+          "
+          class="error"
+        >
+          <small *ngIf="signInForm.get('password')?.hasError('required')">
+            *Password is required.
+          </small>
+          <small
+            *ngIf="
+              !signInForm.get('password')?.hasError('required') &&
+              signInForm.get('password')?.hasError('minlength')
+            "
+          >
+            *Password must be at least 8 characters long.
+          </small>
+          <small
+            *ngIf="
+              !signInForm.get('password')?.hasError('required') &&
+              !signInForm.get('password')?.hasError('minlength') &&
+              signInForm.get('password')?.hasError('passwordStrength')
+            "
+          >
+            *Password must contain an uppercase letter, a lowercase letter, a
+            number, and a special character.
+          </small>
+        </div>
+
+        <input type="submit" value="Login" class="btn solid" />
+        <a routerLink="/resetPassword" class="social-text forgot-password"
+          >Forgot Password?</a
+        >
+        <p class="social-text">Or Sign in with social platforms</p>
+        <div class="social-media">
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-google"></i
+          ></a>
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form
+        [formGroup]="signUpForm"
+        (ngSubmit)="onSignUp()"
+        class="sign-up-form"
+      >
+        <h2 class="title">Sign up</h2>
+
+        <!-- Username Field -->
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input
+            formControlName="username"
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+        <div
+          *ngIf="
+            signUpForm.get('username')?.touched &&
+            signUpForm.get('username')?.invalid
+          "
+          class="error"
+        >
+          <small *ngIf="signUpForm.get('username')?.hasError('required')"
+            >*Username is required.</small
+          >
+          <small *ngIf="signUpForm.get('username')?.hasError('minlength')"
+            >*Username must be at least 5 characters long.</small
+          >
+        </div>
+
+        <!-- Email Field -->
+        <div class="input-field">
+          <i class="fas fa-envelope"></i>
+          <input formControlName="email" type="email" placeholder="Email" />
+        </div>
+        <div
+          *ngIf="
+            signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid
+          "
+          class="error"
+        >
+          <small *ngIf="signUpForm.get('email')?.hasError('required')"
+            >*Email is required.</small
+          >
+          <small *ngIf="signUpForm.get('email')?.hasError('email')"
+            >*Please enter a valid email address.</small
+          >
+        </div>
+
+        <!-- Password Field -->
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div
+          *ngIf="
+            signUpForm.get('password')?.touched &&
+            signUpForm.get('password')?.invalid
+          "
+          class="error"
+        >
+          <small *ngIf="signUpForm.get('password')?.hasError('required')">
+            *Password is required.
+          </small>
+
+          <small
+            *ngIf="
+              !signUpForm.get('password')?.hasError('required') &&
+              signUpForm.get('password')?.hasError('minlength')
+            "
+          >
+            *Password must be at least 8 characters long.
+          </small>
+
+          <small
+            *ngIf="
+              !signUpForm.get('password')?.hasError('required') &&
+              !signUpForm.get('password')?.hasError('minlength') &&
+              signUpForm.get('password')?.hasError('passwordStrength')
+            "
+          >
+            *Password must contain an uppercase letter, a lowercase letter, a
+            number, and a special character.
+          </small>
+        </div>
+
+        <input type="submit" class="btn" value="Sign up" />
+        <p class="social-text">Or Sign up with social platforms</p>
+        <div class="social-media">
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-google"></i
+          ></a>
+          <a routerLink="/auth" class="social-icon"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>New to our banking family?</h3>
+        <p>
+          Open an account with us today and unlock a world of financial
+          possibilities. Enjoy secure, easy, and convenient banking tailored to
+          your needs.
+        </p>
+        <button class="btn transparent btn_hover" (click)="toggleMode()">
+          Sign up
+        </button>
+      </div>
+      <img
+        src="https://i.ibb.co/6HXL6q1/Privacy-policy-rafiki.png"
+        class="image"
+        alt=""
+      />
+    </div>
+    <div class="panel right-panel">
+      <div class="content">
+        <h3>Welcome back to your bank</h3>
+        <p>
+          Securely manage your accounts, track your spending, and achieve your
+          financial goals. Thank you for banking with us!
+        </p>
+        <button class="btn transparent" (click)="toggleMode()">Sign in</button>
+      </div>
+      <img
+        src="https://i.ibb.co/nP8H853/Mobile-login-rafiki.png"
+        class="image"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

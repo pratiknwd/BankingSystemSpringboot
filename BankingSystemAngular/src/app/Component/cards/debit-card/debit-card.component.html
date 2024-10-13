@@ -1,0 +1,35 @@
+<div class="debitCard">
+  <div class="wrapper">
+    <div class="container">
+      <div class="card">
+        <div class="top">
+          <h2>{{ userName | uppercase }}</h2>
+          <img [src]="profileIcon" alt="Profile Icon" />
+        </div>
+        <div class="infos">
+          <section class="card-number">
+            <p>Card Number</p>
+            <h1>{{ DebitCard.cardNumber | cardNumberFormater }}</h1>
+          </section>
+          <div class="bottom">
+            <aside class="infos--bottom">
+              <section>
+                <p>Expiry date</p>
+                <h3>{{ DebitCard.expiryDate | dateFormator }}</h3>
+              </section>
+              <section>
+                <p>CVV</p>
+                <h3>{{ DebitCard.cvv }}</h3>
+              </section>
+            </aside>
+            <aside>
+              <section>
+                <img [src]="brandLogo" class="brand" alt="Brand Logo" />
+              </section>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

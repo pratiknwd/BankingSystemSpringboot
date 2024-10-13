@@ -1,0 +1,207 @@
+@charset "ISO-8859-1";
+*{
+	margin: 0;
+	padding:0;
+}
+.topnavbaar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(to top,#d5f2f5,white, white); 
+	position: sticky;
+/* 	position: fixed; */
+	/* top: 0;
+	left: 0; */
+	width: 100%;
+	/* padding: 10px 20px; */
+	font-size: 20px;
+
+}
+
+.bankingTypes a, .topnavbaarmenu a {
+	text-decoration: none;	color: black;
+}
+
+.topnavbaar a {
+	position: relative;
+	margin: 0 10px;
+	text-decoration: none;
+	color: black;
+}
+
+.topnavbaar a:not(:last-child)::after {
+	content: '|';
+	position: absolute;
+	right: -15px; /* Adjust the position as needed */
+	color: black;
+}
+
+.rightButton {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 9%;
+	margin-right: 40px;
+	border-radius: 50px;
+	background: #fcd9c0;
+	border: none;
+	color: #b02a30;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 15px;
+	padding: 2px;
+	padding-left: 0;
+}
+
+#navContactNum {
+	width: 20px;
+	padding: 0;
+}
+.Login {
+	background-color: #f37e20;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	margin-right: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.secondnavbaar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	background: white;
+	/* position: fixed;
+	top: 35px; */
+	width: 100%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+	
+}
+
+.searchBar {
+	padding: 10px;
+	border-radius: 20px;
+	border: 2px solid #f37e20;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	width: 40%;
+}
+
+.Login {
+	background-color: #f37e20;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	margin-right: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.notificationIcon {
+	cursor: pointer;
+}
+
+.notification-button {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	margin-right: 2.5%;
+	border: none;
+	background: white;
+	color: #f37e20;
+}
+
+
+.custom-margin {
+	
+    margin: 40px;
+    padding: 40px; 
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+
+.custom-margin .col-sm-6 {
+    margin-bottom: 20px; 
+}
+
+.custom-margin .card {
+    padding: 10px; /* Add padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Default box shadow */
+    border: 1px solid #7e7e7e; /* Light gray border */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border-radius: 0px;
+}
+
+/* Hover effect for the card */
+.custom-margin .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+    transform: translateY(5px); /* Slightly lift the card */
+    border-color: #0056b3; /* Change border color on hover */
+}
+
+.custom-margin-2 {
+    margin: 40px;
+    padding: 40px;
+    padding-top: 0px;
+    margin-top:0px; 
+    
+}
+
+
+.custom-margin-2 .col-sm-6 {
+    margin-bottom: 20px; 
+}
+
+/* styles.css */
+
+/* Apply base styles to the card within .custom-margin-2 */
+.custom-margin-2 .card {
+    padding: 10px; /* Add padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Default box shadow */
+    border: 1px solid #7e7e7e; /* Light gray border */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border-radius: 0px;
+}
+
+/* Hover effect for the card */
+.custom-margin-2 .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+    transform: translateY(5px); /* Slightly lift the card */
+    border-color: #0056b3; /* Change border color on hover */
+}
+
+.btn-primary {
+    background: red; /* Original background color */
+    color: white;   /* Text color */
+    border: none;   /* Remove border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.btn-primary:hover {
+    background: #fc0328; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.03); 
+}
+
+
+
+
+
+
+  

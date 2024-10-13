@@ -1,0 +1,84 @@
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<back></back>
+<div id="login-page">
+  <main>
+    <div class="left-side"></div>
+    <div class="right-side">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="or">Account Aplication Form</div>
+
+        <label for="">CustomerId</label>
+        <input
+          type="text"
+          placeholder="Enter CustomerId"
+          formControlName="customerId"
+        />
+        <div
+          *ngIf="
+            registrationForm.controls['customerId'].invalid &&
+            (registrationForm.controls['customerId'].dirty ||
+              registrationForm.controls['customerId'].touched)
+          "
+          class="small text-danger error"
+        >
+          *CustomerId is required
+        </div>
+
+        <label for="">Choose Application Type</label>
+        <select formControlName="applicationType" id="applicationType-select">
+          <option value="" disabled selected>Select Application Type</option>
+          <option
+            *ngFor="let application of applicationTypes"
+            [value]="application"
+          >
+            {{ application }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            registrationForm.controls['applicationType'].invalid &&
+            (registrationForm.controls['applicationType'].dirty ||
+              registrationForm.controls['applicationType'].touched)
+          "
+          class="small text-danger error"
+        >
+          *select an apllication Type
+        </div>
+
+        <label for="">Choose IFSC Code</label>
+        <select class="ifsc-select" formControlName="ifsc" id="ifsc-select">
+          <option value="" disabled selected>Select IFSC Code</option>
+          <option
+            *ngFor="let i of ifsc"
+            [value]="i"
+          >
+            {{ i }}
+          </option>
+        </select>
+        <small class="ifsc mb-2" (click)="goToBranch()">*click to find nearest Branch IFSC</small>
+        <div
+          *ngIf="
+            registrationForm.controls['ifsc'].invalid &&
+            (registrationForm.controls['ifsc'].dirty ||
+              registrationForm.controls['ifsc'].touched)
+          "
+          class="small text-danger error"
+        >
+          *select an ifsc code
+        </div>
+
+        <button type="submit" class="login-btn btn-success">Submit</button>
+        <button class="login-btn" type="button" id="back" (click)="goBack()">
+          Back
+        </button>
+      </form>
+    </div>
+  </main>
+</div>

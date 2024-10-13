@@ -1,0 +1,149 @@
+<div class="back">
+  <i class="fa-solid fa-arrow-left" (click)="goBack()"></i>
+</div>
+<div class="container text-center my-4">
+  <h1>Account Statement</h1>
+
+  <div class="row justify-content-center align-items-center my-3">
+    <div class="col-auto">
+      <select
+        class="form-select"
+        [(ngModel)]="selectedAccount"
+        aria-label="Select Account"
+      >
+        <option value="" disabled>Select Account Number</option>
+        <option *ngFor="let account of accountNumbers" [value]="account">
+          {{ account }}
+        </option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button
+        class="btn btn-dark"
+        [disabled]="!selectedAccount"
+        (click)="search()"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="noTransaction mt-5"
+    *ngIf="showTable && transactions.length === 0"
+  >
+    <h2>No Transaction..!</h2>
+  </div>
+
+  <div class="display" *ngIf="showTable && transactions.length !== 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">T-ID</th>
+          <th scope="col">Sender acc</th>
+          <th scope="col">Receiver acc</th>
+          <th scope="col">Type</th>
+          <th scope="col">T-Type</th>
+          <th scope="col">T-Channel</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Remarks</th>
+          <th scope="col">T-Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of paginatedTransactions">
+          <td>{{ transaction.transactionId }}</td>
+          <td
+            *ngIf="
+              transaction.transferDesciption.toLowerCase().includes('debited')
+            "
+          >
+            {{ transaction.account }}
+          </td>
+          <td
+            *ngIf="
+              transaction.transferDesciption.toLowerCase().includes('debited')
+            "
+          >
+            {{ transaction.accociatedAccountNumber }}
+          </td>
+
+          <td
+            *ngIf="
+              transaction.transferDesciption.toLowerCase().includes('credited')
+            "
+          >
+            {{ transaction.accociatedAccountNumber }}
+          </td>
+          <td
+            *ngIf="
+              transaction.transferDesciption.toLowerCase().includes('credited')
+            "
+          >
+            {{ transaction.account }}
+          </td>
+          <td>
+            <span
+              *ngIf="
+                transaction.transferDesciption.toLowerCase().includes('debited')
+              "
+              class="text-danger"
+              >Debit</span
+            >
+            <span
+              *ngIf="
+                transaction.transferDesciption
+                  .toLowerCase()
+                  .includes('credited')
+              "
+              class="text-success"
+              >Credit</span
+            >
+          </td>
+          <td>{{ transaction.transactionType }}</td>
+          <td>{{ transaction.transactionChannel }}</td>
+          <td>{{ transaction.amount | number }}</td>
+          <td>{{ transaction.remarks }}</td>
+          <td>{{ transaction.trasactionDate | date : "MM/dd/yyyy" }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <nav *ngIf="totalPages > 1" aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a
+            class="page-link"
+            (click)="goToPage(currentPage - 1)"
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li
+          class="page-item"
+          [class.active]="currentPage === i + 1"
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+        >
+          <a
+            class="page-link"
+            [ngClass]="{ 'bg-dark text-light': currentPage === i + 1 }"
+            (click)="goToPage(i + 1)"
+          >
+            {{ i + 1 }}
+          </a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a
+            class="page-link"
+            (click)="goToPage(currentPage + 1)"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
