@@ -1,0 +1,292 @@
+@charset "ISO-8859-1";
+
+:root {
+	font-size: 24px;
+}
+
+body {
+	/* background: black;
+	background: linear-gradient(to left, #283593, #1976d2); */
+	background: linear-gradient(to left, #2b3156, #191b1d);
+	height: 100vh;
+	font-family: "Josefin Sans", sans-serif;
+	margin: 0;
+	height: 100vh;
+}
+
+#heading {
+	color: white;
+	text-align: center;
+	margin: 1.3rem;
+	margin-bottom: 4rem;
+}
+
+.container {
+	display: flex;
+	gap: 20px;
+	width: 100%;
+	justify-content: center;
+}
+
+.card, .card-group {
+	cursor: pointer;
+	position: relative;
+	height: 270px;
+	width: 40%;
+	border-radius: 25px;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(30px);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	position: relative;
+	transition: all 1s;
+}
+
+.card:hover {
+	transform: scale(0.95);
+}
+
+.type {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	color: white;
+	height: auto;
+	opacity: 0.7;
+}
+
+.logo img, .chip img, .number, .name, .from, .to, .ring {
+	position: absolute;
+}
+
+.logo img {
+	top: 35px;
+	right: 40px;
+	width: 80px;
+	height: auto;
+	opacity: 0.8;
+}
+
+.chip img {
+	top: 120px;
+	left: 40px;
+	width: 50px;
+	height: auto;
+	opacity: 0.8;
+}
+
+.number, .name, .from, .to {
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+}
+
+.number {
+	left: 40px;
+	bottom: 65px;
+	font-family: "Nunito", sans-serif;
+}
+
+.name {
+	font-size: 0.5rem;
+	left: 40px;
+	bottom: 35px;
+}
+
+.from {
+	font-size: 0.5rem;
+	bottom: 35px;
+	right: 110px;
+}
+
+.to {
+	font-size: 0.5rem;
+	bottom: 35px;
+	right: 40px;
+}
+
+.ring {
+	height: 500px;
+	width: 500px;
+	border-radius: 50%;
+	background: transparent;
+	border: 50px solid rgba(255, 255, 255, 0.1);
+	bottom: -250px;
+	right: -250px;
+	box-sizing: border-box;
+}
+
+.ring::after {
+	content: "";
+	position: absolute;
+	height: 600px;
+	width: 600px;
+	border-radius: 50%;
+	background: transparent;
+	border: 30px solid rgba(255, 255, 255, 0.1);
+	bottom: -80px;
+	right: -110px;
+	box-sizing: border-box;
+}
+
+.bg-img {
+	background-image:
+		url(https://static.vecteezy.com/system/resources/previews/004/230/475/original/abstract-wavy-stripes-on-a-white-background-isolated-wave-line-art-curved-smooth-design-illustration-eps-10-free-vector.jpg);
+	background-position: 35% 0%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: black;
+}
+
+.inner-card {
+	padding: 20px;
+}
+
+.inner-card .flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.inner-card .name, .inner-card .card-valid, .inner-card .visa-logo {
+	text-align: left;
+}
+
+.inner-card h1, .inner-card h3, .inner-card span {
+	margin: 0;
+}
+
+.inner-card h1 {
+	font-size: 24px;
+}
+
+.inner-card h3 {
+	font-size: 18px;
+}
+
+.inner-card span {
+	font-size: 14px;
+}
+
+.rounded-full {
+	border-radius: 50%;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.top-0 {
+	top: 0;
+}
+
+.right-5 {
+	right: 5px;
+}
+
+.right-10 {
+	right: 10px;
+}
+
+.bg-amber-400\/50 {
+	background-color: rgba(255, 193, 7);
+}
+
+.bg-red-500\/50 {
+	background-color: rgba(244, 67, 54);
+}
+
+.w-10 {
+	width: 47px;
+}
+
+.h-10 {
+	height: 47px;
+}
+
+.py-6 {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-stone-600 {
+	color: #57534e;
+}
+
+.text-slate-950 {
+	color: #0f172a;
+}
+
+.text-blue-600 {
+	color: #2563eb;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-semibold {
+	font-weight: 600;
+}
+
+.font-medium {
+	font-weight: 500;
+}
+
+.text-xs {
+	font-size: 0.75rem;
+}
+
+.text-lg {
+	font-size: 1.125rem;
+}
+
+.text-2xl {
+	font-size: 1.5rem;
+}
+
+.text-3xl {
+	font-size: 1.875rem;
+}
+
+.details {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.secondCard-type {
+	position: absolute;
+	right: 11px;
+	top: 15px;
+	z-index: 10;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: italic;
+	color: white;
+}
+
+.back {
+	display: block;
+	margin: 3.5rem 47%;
+}
+
+.back a {
+	text-decoration: none;
+	color: white;
+	background: black;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 19px;
+	border: 0.5px solid white;
+}

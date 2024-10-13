@@ -1,0 +1,46 @@
+<back></back>
+<div class="container mt-5 px-5">
+    <h2>Loan Types</h2>
+  
+    <ul class="list-group">
+      <li *ngFor="let loanType of loanTypes" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ loanType.loanType }} ({{ loanType.loanInterest }}%)
+        <button class="btn btn-primary" (click)="openModal(content, loanType)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteLoanType(loanType.loanTypeId)">Delete</button>
+      </li>
+    </ul>
+  
+  
+    
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h5 class="modal-title">{{ isEditMode ? 'Edit Loan Type' : 'Add Loan Type' }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="loanType" class="form-label">Loan Type</label>
+          <select class="form-select" [(ngModel)]="newLoanType">
+            <option value="Personal">Personal</option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="Home">Home</option>
+            <option value="Education">Education</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="loanInterest" class="form-label">Loan Interest (%)</label>
+          <input type="number" class="form-control" [(ngModel)]="newLoanInterest" placeholder="Enter interest rate" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="isEditMode ? updateLoanType() : addLoanType()">
+          {{ isEditMode ? 'Confirm Edit' : 'Add Loan Type' }}
+        </button>
+      </div>
+    </ng-template>
+    <button (click)="openModal(content)" class="btn-floating">
+      <span class="icon">+</span>
+    </button>
+  </div>
+  

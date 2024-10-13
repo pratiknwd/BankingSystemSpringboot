@@ -1,0 +1,211 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Quicksand', sans-serif;
+    color: rgba(0,0,0,0.65);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Book Styles */
+.book {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 66%;
+    margin: 20px auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.book::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.book-cover {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 1;
+}
+
+.book-cover h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.separator {
+    width: 50%;
+    height: 2px;
+    background: #fff;
+    margin: 1rem auto;
+    border-bottom: 2px solid #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.book-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.book-content h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Account Details Styles */
+#accDetails .detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+
+.detail-item .label {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.detail-item .label i {
+    margin-right: 0.5rem;
+}
+
+.detail-item .value {
+    display: flex;
+    align-items: center;
+}
+
+/* Button Styles */
+#button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    background: green;
+    width: 6rem;
+    margin: auto;
+    border-radius: 40px;
+    padding: 7px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#button a {
+    /* background: #000; */
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+#button a i {
+    margin-right: 0.5rem;
+}
+
+#button a:hover {
+    /* background: #333; */
+}
+
+#button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Alert Styles */
+#alert {
+    position: fixed;
+    top: 2rem;
+    background: #7ed3d3;
+    border-radius: 30px;
+    right: -50%;
+    transform: translateX(-50%);
+    transition: right 1.5s, opacity 1s;
+    opacity: 0;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    z-index: 10;
+}
+
+.alert-show {
+    right: -15%;
+    opacity: 1;
+}
+
+.alert-hide {
+    right: -50%;
+    opacity: 0;
+}
+
+/* Additional Styles */
+.fa {
+    margin-right: 0.5rem;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+#tpin {
+    color: blue;
+    cursor: pointer;
+}
+
+#tpinValue {
+    cursor: pointer;
+    display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .book {
+        width: 90%;
+    }
+}

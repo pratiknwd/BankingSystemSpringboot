@@ -1,0 +1,118 @@
+/* Global reset styles */
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* Font and overall card style */
+.debitCard {
+  font-family: "Inter", sans-serif;
+}
+
+/* Centering the card using flexbox */
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  background: #2b2d2f;
+}
+
+.title {
+  text-align: center;
+  margin-top: 55px;
+  color: #fff;
+  font-size: 25px;
+}
+
+.container {
+  margin: 40% 50%;
+}
+
+.card {
+  position: relative;
+  width: 450px;
+  height: 270px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 16px;
+  border: solid 4px rgba(255, 255, 255, 0.1);
+
+  background-image: url("https://products.ls.graphics/mesh-gradients/images/78.-Night-sky.jpg");
+  background-position: center;
+  background-size: cover;
+
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
+}
+
+h1 {
+  font-size: 25px;
+  /* font-weight: bold; */
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.top,
+.bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top img {
+  width: 40px;
+}
+
+.brand {
+  height: 50px;
+  mix-blend-mode: overlay;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infos--bottom {
+  display: flex;
+  gap: 20px;
+}
+
+.card-number {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

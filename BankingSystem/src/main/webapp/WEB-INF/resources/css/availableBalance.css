@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #f8f9fa;
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	margin-top: 50px;
+}
+
+.input-group {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#searchButton {
+	background-color: black;
+	color: white;
+}
+
+#searchButton:hover {
+	background-color: #0056b3;
+	color: white;
+}
+
+#resultContainer .alert {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

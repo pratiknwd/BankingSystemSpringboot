@@ -1,0 +1,86 @@
+<back></back>
+<div class="ppfcalc">
+  <div>
+    <div class="ppfcalcheadline">
+      <h1>PPF<span class="highlight"> Calculator</span></h1>
+    </div>
+    <div class="outer-box">
+      <div class="first-row">
+        <div class="input-group">
+          <label for="investment-amount">Amount You Want to Invest:</label>
+          <input
+            id="investment-amount"
+            type="number"
+            [(ngModel)]="investmentAmount"
+            placeholder="Enter amount Between 500 and 150000"
+            min="0"
+          />
+        </div>
+        <div class="dropdown-group">
+          <label for="investment-frequency">Choose Annually or Monthly:</label>
+          <select id="investment-frequency" [(ngModel)]="investmentFrequency">
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="annually">Annually</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="total-years">Enter Total Years:</label>
+          <input
+            id="total-years"
+            type="number"
+            [(ngModel)]="totalYears"
+            placeholder="Enter total Years Between 15 and 50"
+            min="15"
+          />
+        </div>
+      </div>
+      <div class="warning-row">
+        <div id="amount-warning" class="warning-message">
+          {{ amountWarning }}
+        </div>
+        <div id="years-warning" class="warning-message">{{ yearsWarning }}</div>
+      </div>
+      <div class="second-row">
+        <label for="rate-of-interest">Rate of Interest (in %):</label>
+        <input
+          id="rate-of-interest"
+          class="investment-input"
+          type="number"
+          [value]="7.1"
+          disabled="disabled"
+        />
+      </div>
+      <div class="third-row">
+        <button (click)="calculatePPF()" class="capture-button">
+          CALCULATE
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="pfTable" class="result-row" *ngIf="showResults">
+    <h3>Calculated PPF Value:</h3>
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>Result</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total Invested Amount</td>
+          <td>{{ totalInvestedAmount | currency : "INR" : "symbol" }}</td>
+        </tr>
+        <tr>
+          <td>Total Interest</td>
+          <td>{{ totalInterest | currency : "INR" : "symbol" }}</td>
+        </tr>
+        <tr>
+          <td>Maturity Amount</td>
+          <td>{{ maturityAmount | currency : "INR" : "symbol" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

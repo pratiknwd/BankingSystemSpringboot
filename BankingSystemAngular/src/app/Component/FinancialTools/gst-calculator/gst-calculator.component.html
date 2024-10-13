@@ -1,0 +1,94 @@
+<back></back>
+<div class="gstcalac">
+  <div>
+    <div class="gstcalacheadline">
+      <h1>GST <span class="highlight">Calculator</span></h1>
+    </div>
+    <div class="outer-box">
+      <form [formGroup]="gstForm">
+        <div class="first-row">
+          <div class="input-group">
+            <label for="investment-amount">Amount you can invest today</label>
+            <input
+              id="investment-amount"
+              type="number"
+              placeholder="Enter amount"
+              formControlName="amount"
+            />
+          </div>
+          <div class="dropdown-group">
+            <label for="gst-rate">Choose GST Rate:</label>
+            <select
+              id="gst-rate"
+              class="investment-input"
+              formControlName="gstRate"
+            >
+              <option value="">select interest</option>
+              <option value="5">5%</option>
+              <option value="12">12%</option>
+              <option value="18">18%</option>
+              <option value="28">28%</option>
+            </select>
+          </div>
+          <div class="dropdown-group">
+            <label for="gst-inclusiveness">Inclusive or Exclusive:</label>
+            <select
+              id="gst-inclusiveness"
+              class="investment-input"
+              formControlName="inclusiveness"
+            >
+              <option value="">select</option>
+              <option value="inclusive">Inclusive</option>
+              <option value="exclusive">Exclusive</option>
+            </select>
+          </div>
+        </div>
+        <div class="warning-row">
+          <div
+            *ngIf="
+              gstForm.controls['amount'].invalid &&
+              gstForm.controls['amount'].touched
+            "
+            class="warning-message"
+          >
+            Please enter a valid amount.
+          </div>
+        </div>
+        <div class="third-row">
+          <button
+            id="capture-button"
+            class="capture-button"
+            (click)="calculateGST()"
+            type="button"
+          >
+            CALCULATE
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="result-table" [ngClass]="{ show: showResults }">
+    <h2>GST Calculation Results</h2>
+    <table id="gst-results">
+      <tbody>
+        <tr>
+          <th>Item</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>Actual Amount</td>
+          <td>{{ actualAmount | number : "1.2-2" }}</td>
+        </tr>
+        <tr>
+          <td>GST Amount</td>
+          <td>{{ gstAmount | number : "1.2-2" }}</td>
+        </tr>
+        <tr>
+          <td>Total Amount</td>
+          <td>{{ totalAmount | number : "1.2-2" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

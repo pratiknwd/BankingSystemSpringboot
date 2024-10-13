@@ -1,0 +1,155 @@
+<back></back>
+<div class="container">
+  <h1 class="header-text">
+    SIP <span class="sub-header-text">Calculator</span>
+  </h1>
+  <h3>My Investment Details</h3>
+
+  <form [formGroup]="sipForm" (ngSubmit)="calculateSIP()">
+    <div class="form-row" id="first">
+      <div class="form-group col-md-3">
+        <label for="age">*I am</label>
+        <div class="years">
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            formControlName="age"
+            required
+          />
+          <p>Years</p>
+        </div>
+        <div
+          *ngIf="sipForm.get('age')?.invalid && sipForm.get('age')?.touched"
+          class="text-danger"
+        >
+          Age must be between 18 and 65.
+        </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="investment">*& Want to Invest</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">&#8377;</span>
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            id="investment"
+            formControlName="investment"
+            required
+          />
+        </div>
+        <div
+          *ngIf="
+            sipForm.get('investment')?.invalid &&
+            sipForm.get('investment')?.touched
+          "
+          class="text-danger"
+        >
+          Investment amount is required.
+        </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="frequency">Every</label>
+        <select class="form-control" id="frequency" formControlName="frequency">
+          <option value="12">Monthly</option>
+          <option value="1">Yearly</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row" id="second">
+      <div class="form-group col-md-3">
+        <label for="years">For</label>
+        <div class="years">
+          <input
+            type="number"
+            class="form-control"
+            id="years"
+            formControlName="years"
+            required
+          />
+          <p>Years</p>
+        </div>
+        <div
+          *ngIf="sipForm.get('years')?.invalid && sipForm.get('years')?.touched"
+          class="text-danger"
+        >
+          Investment period is required.
+        </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="return">*My Expected rate of Return</label>
+        <div class="years">
+          <input
+            type="number"
+            class="form-control"
+            id="return"
+            formControlName="return"
+            required
+          />
+          <p>%</p>
+        </div>
+        <div
+          *ngIf="
+            sipForm.get('return')?.invalid && sipForm.get('return')?.touched
+          "
+          class="text-danger"
+        >
+          Expected rate of return is required.
+        </div>
+      </div>
+      <div class="form-group col-md-3"></div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary calculate-btn"
+      [disabled]="sipForm.invalid"
+    >
+      Calculate
+    </button>
+  </form>
+
+  <p id="disclaimer">
+    Disclaimer:<br />
+    The values shown here are only for illustration.<br />
+    The results are generated based on the information provided. It is not
+    intended to be and must not alone be taken as the basis for an investment
+    decision.
+  </p>
+
+  <div id="result-container" *ngIf="resultVisible">
+    <div id="result" class="result-table">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Start Investing</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Investment Amount</td>
+            <td>{{ formattedInvestment }}</td>
+          </tr>
+          <tr>
+            <td>Investment Period</td>
+            <td>{{ sipForm.get("years")?.value }} Yrs</td>
+          </tr>
+          <tr>
+            <td>Total Investment</td>
+            <td>{{ formattedTotalInvestment }}</td>
+          </tr>
+          <tr>
+            <td>Returns at the age {{ ageAtEnd }}</td>
+            <td>{{ formattedSIPValue }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        In just <b>{{ sipForm.get("years")?.value }} years</b>, your invested
+        amount grows by <b>{{ growthPercentage }}%</b>.
+      </p>
+    </div>
+  </div>
+</div>

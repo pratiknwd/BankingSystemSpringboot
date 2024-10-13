@@ -1,0 +1,61 @@
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+<div id="login-page">
+  <main>
+    <div class="left-side"></div>
+    <div class="right-side">
+      <form [formGroup]="financialProductForm" (ngSubmit)="submitForm()">
+        <div class="or">Form</div>
+
+        <label for="">CustomerId</label>
+        <input
+          type="text"
+          placeholder="Enter CustomerId"
+          formControlName="customerId"
+        />
+        <div
+          *ngIf="
+            financialProductForm.controls['customerId'].invalid &&
+            (financialProductForm.controls['customerId'].dirty ||
+              financialProductForm.controls['customerId'].touched)
+          "
+          class="small text-danger error"
+        >
+          *CustomerId is required
+        </div>
+
+        <label for="">Choose Application Type</label>
+        <select formControlName="applicationType" id="applicationType-select">
+          <option value="" disabled selected>Select Application Type</option>
+          <option
+            *ngFor="let application of applicationTypes"
+            [value]="application"
+          >
+            {{ application }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            financialProductForm.controls['applicationType'].invalid &&
+            (financialProductForm.controls['applicationType'].dirty ||
+              financialProductForm.controls['applicationType'].touched)
+          "
+          class="small text-danger error"
+        >
+          *select an apllication Type
+        </div>
+
+        <button type="submit" class="login-btn btn-success">Submit</button>
+        <button class="login-btn" type="button" id="back" (click)="goBack()">
+          Back
+        </button>
+      </form>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,48 @@
+@charset "ISO-8859-1";
+
+body {
+	background: black;
+	color: white;
+}
+
+#body-div {
+	background: rgba(255, 255, 255, 0.1);
+	border: 2px solid grey;
+	color: white;
+	margin: auto;
+	width: 50vw;
+	border-radius: 10px;
+	padding: 20px;
+	margin-top: 14px;
+}
+
+form {
+	color: white;
+}
+
+.form-control, .form-select {
+	background: rgba(255, 255, 255, 0.1);
+	color: white;
+	border: 1px solid grey;
+}
+
+.form-control:focus, .form-select:focus {
+	background: rgba(255, 255, 255, 0.2);
+	color: white;
+}
+
+label {
+	color: grey;
+}
+
+.btn {
+	margin-top: 10px;
+}
+
+.form-group {
+	text-align: left;
+}
+
+form select option {
+	background: black;
+}

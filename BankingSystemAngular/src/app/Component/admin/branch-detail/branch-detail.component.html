@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2>Branch Details</h2>
+
+  <div class="card">
+    <div class="card-header">
+      Branch ID: {{ branch?.branchId }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Branch Information</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>IFSC:</strong> {{ branch?.ifsc }}</li>
+        <li class="list-group-item">
+          <strong>Address:</strong>
+          {{ branch?.address.buildingName || 'N/A' }},
+          {{ branch?.address.street || 'N/A' }},
+          {{ branch?.address.city || 'N/A' }},
+          {{ branch?.address.state || 'N/A' }},
+          {{ branch?.address.country || 'N/A' }},
+          {{ branch?.address.zipcode || 'N/A' }}
+        </li>
+
+        <li class="list-group-item"><strong>Created Date:</strong> {{ branch?.createdDate | date:'fullDate' }}</li>
+      </ul>
+    </div>
+    <div class="card-footer text-muted">
+      <a [routerLink]="['/admin/view-banks']" class="btn btn-secondary">Back to All Branches</a>
+    </div>
+  </div>
+</div>

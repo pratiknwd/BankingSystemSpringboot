@@ -1,0 +1,58 @@
+<div class="container">
+    <h2 class="my-4">Debit Card Types</h2>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Debit Card Type</th>
+          <th>Daily Limit</th>
+          <th>Weekly Limit</th>
+          <th>Monthly Limit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cardType of debitCardTypes">
+          <td>{{ cardType.debitCardType }}</td>
+          <td>{{ cardType.dailyLimit }}</td>
+          <td>{{ cardType.weeklyLimit }}</td>
+          <td>{{ cardType.monthlyLimit }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h3 class="my-4">Add New Debit Card Type</h3>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Debit Card Type"
+        [(ngModel)]="newDebitCardType.debitCardType"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Daily Limit"
+        [(ngModel)]="newDebitCardType.dailyLimit"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Weekly Limit"
+        [(ngModel)]="newDebitCardType.weeklyLimit"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Monthly Limit"
+        [(ngModel)]="newDebitCardType.monthlyLimit"
+      />
+    </div>
+    <button class="btn btn-primary" (click)="addDebitCardType()">Add Debit Card Type</button>
+  </div>
+  

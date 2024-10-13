@@ -1,0 +1,41 @@
+@charset "ISO-8859-1";
+
+body {
+	background: white;
+	margin: 0;
+}
+
+.firstrowcards {
+	display: flex;
+	justify-content: space-between; gap : 20px;
+	margin: 40px;
+	gap: 20px;
+}
+
+.card {
+	width: 25rem;
+	height: 20rem;
+	background: #FBEBDF;
+	border-radius: 10px;
+}
+
+.card-body {
+	margin: 10px;
+}
+
+.card-text {
+	line-height: 21px;
+	font-size: 14px;
+	color: #787F89;
+}
+
+.bottom-link {
+    margin-top: 130px;
+    margin-left: 60px;
+}
+.bottom-link a {
+    color: #f37e20;
+    text-decoration: underline;
+    font-weight: 600; /* You can adjust the font-weight as needed */
+}
+

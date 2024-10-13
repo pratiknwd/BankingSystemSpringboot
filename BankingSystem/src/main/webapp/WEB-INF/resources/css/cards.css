@@ -1,0 +1,427 @@
+@charset "ISO-8859-1";
+
+*, *:after, *:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+body {
+	background: black;
+}
+
+#cross {
+	filter: invert(1);
+	width: 42px;
+	position: absolute;
+	right: 2rem;
+	top: 1.5rem;
+	z-index: 100;
+}
+
+html {
+	font-family: "Inter", sans-serif;
+}
+
+.wrapper {
+	display: grid;
+	justify-content: center;
+	place-items: center;
+	height: 100vh;
+}
+
+.carousel {
+	height: 100vh;
+}
+
+.title {
+	text-align: center;
+	margin-top: 55px;
+	color: #fff;
+	font-size: 25px;
+}
+
+.card {
+	position: relative;
+	width: 27rem;
+	height: 16rem;
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 16px;
+	border: solid 4px rgba(255, 255, 255, 0.1);
+	background-image:
+		url("https://products.ls.graphics/mesh-gradients/images/78.-Night-sky.jpg");
+	background-position: center;
+	background-size: cover;
+	box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+		rgba(255, 255, 255, 0.12) 0px -12px 30px, rgba(255, 255, 255, 0.12)
+		0px 4px 6px, rgba(255, 255, 255, 0.17) 0px 12px 13px,
+		rgba(255, 255, 255, 0.09) 0px -3px 5px;
+	transition: all 1s;
+}
+
+.card:hover {
+	transform: scale(0.95);
+}
+
+h1 {
+	font-size: 1.8rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.1rem;
+}
+
+p {
+	font-size: 0.8rem;
+	margin-bottom: 0.45rem;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.top, .bottom {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top img {
+	width: 2.3rem;
+}
+
+.brand {
+	height: 3rem;
+	mix-blend-mode: overlay;
+}
+
+.infos {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.infos--bottom {
+	display: flex;
+	gap: 20px;
+}
+
+.card-number {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+#plus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#add {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 8rem;
+	color: #5e4646;
+	text-decoration: none;
+	height: 10rem;
+	width: 10rem;
+}
+
+#card-type {
+	opacity: 0.6;
+	position: absolute;
+	bottom: 2px;
+	right: 17px;
+}
+
+/* Platinum card css */
+.credit-card, .credit-card-group {
+	cursor: pointer;
+	position: relative;
+	height: 270px;
+	width: 40%;
+	border-radius: 25px;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(30px);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	position: relative;
+	transition: all 1s;
+}
+
+.credit-card {
+	width: 27rem;
+}
+
+.credit-card:hover {
+	transform: scale(0.95);
+}
+
+.credit-type {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	color: white;
+	height: auto;
+	opacity: 0.7;
+}
+
+.credit-logo img, .credit-chip img, .credit-number, .credit-name,
+	.credit-from, .credit-to, .credit-ring {
+	position: absolute;
+}
+
+.credit-logo img {
+	top: 35px;
+	right: 40px;
+	width: 80px;
+	height: auto;
+	opacity: 0.8;
+}
+
+.credit-chip img {
+	top: 120px;
+	left: 40px;
+	width: 50px;
+	height: auto;
+	opacity: 0.8;
+}
+
+.credit-number, .credit-name, .credit-from, .credit-to {
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+}
+
+.credit-number {
+	left: 40px;
+	bottom: 65px;
+	font-family: "Nunito", sans-serif;
+}
+
+.credit-name {
+	font-size: 0.5rem;
+	left: 40px;
+	bottom: 35px;
+}
+
+.credit-from {
+	font-size: 0.5rem;
+	bottom: 35px;
+	right: 110px;
+}
+
+.credit-to {
+	font-size: 0.5rem;
+	bottom: 35px;
+	right: 40px;
+}
+
+.credit-ring {
+	height: 500px;
+	width: 500px;
+	border-radius: 50%;
+	background: transparent;
+	border: 50px solid rgba(255, 255, 255, 0.1);
+	bottom: -250px;
+	right: -250px;
+	box-sizing: border-box;
+}
+
+.credit-ring::after {
+	content: "";
+	position: absolute;
+	height: 600px;
+	width: 600px;
+	border-radius: 50%;
+	background: transparent;
+	border: 30px solid rgba(255, 255, 255, 0.1);
+	bottom: -80px;
+	right: -110px;
+	box-sizing: border-box;
+}
+
+#Creditcard1-type{
+	position: absolute;
+    bottom: 1px;
+    right: 1.1rem;
+    color: white;
+    opacity:0.5;
+}
+
+/* mastercard css */
+.credit2-card {
+	height: 16rem;
+	width: 27rem;
+	border-radius: 25px;
+}
+
+.credit2-bg-img {
+	background-image:
+		url(https://static.vecteezy.com/system/resources/previews/004/230/475/original/abstract-wavy-stripes-on-a-white-background-isolated-wave-line-art-curved-smooth-design-illustration-eps-10-free-vector.jpg);
+	background-position: 35% 0%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: black;
+}
+
+.credit2-inner-card {
+	padding: 20px;
+}
+
+.credit2-inner-card .credit2-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.credit2-inner-card .credit2-name, .credit2-inner-card .credit2-card-valid,
+	.credit2-inner-card .credit2-visa-logo {
+	text-align: left;
+}
+
+.credit2-inner-card h1, .credit2-inner-card h3, .credit2-inner-card span
+	{
+	margin: 0;
+}
+
+.credit2-inner-card h1 {
+	font-size: 24px;
+}
+
+.credit2-inner-card h3 {
+	font-size: 18px;
+}
+
+.credit2-inner-card span {
+	font-size: 14px;
+}
+
+.credit2-rounded-full {
+	border-radius: 50%;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.top-0 {
+	top: 0;
+}
+
+.right-5 {
+	right: 5px;
+}
+
+.right-10 {
+	right: 10px;
+}
+
+.bg-amber-400\/50 {
+	background-color: rgba(255, 193, 7);
+}
+
+.bg-red-500\/50 {
+	background-color: rgba(244, 67, 54);
+}
+
+.w-10 {
+	width: 47px;
+}
+
+.h-10 {
+	height: 47px;
+}
+
+.py-6 {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-stone-600 {
+	color: #57534e;
+}
+
+.text-slate-950 {
+	color: #0f172a;
+}
+
+.text-blue-600 {
+	color: #2563eb;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-semibold {
+	font-weight: 600;
+}
+
+.font-medium {
+	font-weight: 500;
+}
+
+.text-xs {
+	font-size: 0.75rem;
+}
+
+.text-lg {
+	font-size: 1.125rem;
+}
+
+.xl {
+	font-size: 1.5rem;
+}
+
+.text-3xl {
+	font-size: 1.875rem;
+}
+
+.credit2-details {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.credit2-secondCard-type {
+	position: absolute;
+	right: 11px;
+	top: 15px;
+	z-index: 10;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: italic;
+	color: white;
+}
+
+#card2-type {
+	position: absolute;
+	bottom: 2px;
+	right: 14px;
+	font-weight: bolder;
+	opacity: 0.6;
+}

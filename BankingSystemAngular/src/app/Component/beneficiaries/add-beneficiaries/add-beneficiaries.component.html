@@ -1,0 +1,103 @@
+<ngb-alert
+  [type]="alert.type"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alert.message }}
+</ngb-alert>
+
+<div class="wrapper register">
+  <a (click)="goBack()">
+    <span class="icon-close"><i class="fas fa-times"></i></span>
+  </a>
+
+  <h2>Add Beneficiary</h2>
+  <form [formGroup]="beneficiaryForm" (ngSubmit)="onSubmit()">
+    <div class="input-box">
+      <span class="icon"><i class="fa fa-credit-card"></i></span>
+      <input
+        formControlName="beneficiaryAccountNumber"
+        type="number"
+        required
+      />
+      <label>Beneficiary Account Number</label>
+      <div
+        *ngIf="
+          beneficiaryForm.get('beneficiaryAccountNumber')?.invalid &&
+          beneficiaryForm.get('beneficiaryAccountNumber')?.touched
+        "
+        class="error"
+      >
+        <small
+          *ngIf="beneficiaryForm.get('beneficiaryAccountNumber')?.errors?.['required']"
+          >*Account number is required.</small
+        >
+        <small
+          *ngIf="beneficiaryForm.get('beneficiaryAccountNumber')?.errors?.['pattern']"
+          >*Invalid account number format.</small
+        >
+      </div>
+    </div>
+
+    <div class="input-box">
+      <span class="icon"><i class="fa fa-user"></i></span>
+      <input formControlName="beneficiaryName" type="text" required />
+      <label>Beneficiary Name</label>
+      <div
+        *ngIf="
+          beneficiaryForm.get('beneficiaryName')?.invalid &&
+          beneficiaryForm.get('beneficiaryName')?.touched
+        "
+        class="error"
+      >
+        <small
+          *ngIf="beneficiaryForm.get('beneficiaryName')?.errors?.['required']"
+          >*Name is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="input-box">
+      <span class="icon"><i class="fas fa-university"></i></span>
+      <input formControlName="beneficiaryBankName" type="text" required />
+      <label>Beneficiary Bank Name</label>
+      <div
+        *ngIf="
+          beneficiaryForm.get('beneficiaryBankName')?.invalid &&
+          beneficiaryForm.get('beneficiaryBankName')?.touched
+        "
+        class="error"
+      >
+        <small
+          *ngIf="beneficiaryForm.get('beneficiaryBankName')?.errors?.['required']"
+          >*Bank name is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="input-box">
+      <span class="icon"><i class="fas fa-tag"></i></span>
+      <input formControlName="beneficiaryIFSC" type="text" required />
+      <label>IFSC Code</label>
+      <div
+        *ngIf="
+          beneficiaryForm.get('beneficiaryIFSC')?.invalid &&
+          beneficiaryForm.get('beneficiaryIFSC')?.touched
+        "
+        class="error"
+      >
+        <small
+          *ngIf="beneficiaryForm.get('beneficiaryIFSC')?.errors?.['required']"
+          >*IFSC code is required.</small
+        >
+        <small
+          *ngIf="beneficiaryForm.get('beneficiaryIFSC')?.errors?.['pattern']"
+          >*Invalid IFSC code format.</small
+        >
+      </div>
+    </div>
+
+    <button type="submit" class="btn">Add Beneficiary</button>
+  </form>
+</div>

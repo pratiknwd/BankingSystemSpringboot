@@ -1,0 +1,60 @@
+<back></back>
+<div class="container">
+  <h2>Transaction Types</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Transaction Channels</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let type of transactionTypes">
+        <td>{{ type.transactionMethod }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="openDeleteModal(type)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <ng-template #addModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Add New Transaction Type</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <input type="text" #newType placeholder="Enter new type" class="form-control" />
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="addTransactionType(newType.value); newType.value=''">
+        Add Type
+      </button>
+    </div>
+  </ng-template>
+
+
+  <ng-template #deleteModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Confirm Deletion</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to delete the transaction type: <strong>{{ selectedType?.transactionMethod }}</strong>?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel click')">No</button>
+      <button type="button" class="btn btn-danger" (click)="deleteTransactionType()">Yes, Delete</button>
+    </div>
+  </ng-template>
+  <button (click)="openAddModal()" class="btn-floating">
+    <span class="icon">+</span>
+  </button>
+
+</div>

@@ -1,0 +1,111 @@
+<back></back>
+<div class="compoundcalc">
+  <div>
+    <div class="ppfcalcheadline">
+      <h1>Compound <span class="highlight">Interest Calculator</span></h1>
+    </div>
+    <div class="outer-box">
+      <form [formGroup]="compoundForm" (ngSubmit)="calculateCompoundInterest()">
+        <div class="first-row">
+          <div class="input-group">
+            <label for="investment-amount">Amount you can invest today</label>
+            <input
+              id="investment-amount"
+              type="number"
+              placeholder="Enter amount Between 500 and 150000"
+              formControlName="principal"
+            />
+          </div>
+          <div class="input-group">
+            <label for="investment-amount-repeat"
+              >Amount you want to invest Repeatedly</label
+            >
+            <input
+              id="investment-amount-repeat"
+              type="number"
+              placeholder="Enter amount Between 500 and 150000"
+              formControlName="investmentAmountRepeat"
+            />
+          </div>
+          <div class="input-group">
+            <label for="total-years"
+              >Number of years you want to stay invest for</label
+            >
+            <input
+              id="total-years"
+              type="number"
+              placeholder="Enter total Years Between 15 and 50"
+              formControlName="years"
+            />
+          </div>
+        </div>
+        <div class="warning-row">
+          <div
+            id="amount-warning"
+            class="warning-message"
+            *ngIf="amountWarning"
+          >
+            {{ amountWarning }}
+          </div>
+          <div id="years-warning" class="warning-message" *ngIf="yearsWarning">
+            {{ yearsWarning }}
+          </div>
+        </div>
+        <div class="second-row">
+          <div class="dropdown-group">
+            <label for="investment-frequency"
+              >Choose Annually or Monthly:</label
+            >
+            <select
+              id="investment-frequency"
+              class="investment-input"
+              formControlName="frequency"
+            >
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="annually">Annually</option>
+            </select>
+          </div>
+          <div>
+            <label for="rate-of-interest"
+              >Rate of Interest expected(in %):</label
+            >
+            <input
+              id="rate-of-interest"
+              class="investment-input"
+              type="number"
+              formControlName="annualInterestRate"
+            />
+          </div>
+        </div>
+        <div class="third-row">
+          <button id="capture-button" class="capture-button" type="submit">
+            CALCULATE
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- Results Table -->
+    <div id="results-table" class="result-table" *ngIf="results.length > 0">
+      <h2>Compound Interest Calculation Results</h2>
+      <table id="interest-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Principal Amount</th>
+            <th>Interest Earned</th>
+            <th>Amount After Year</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let result of results">
+            <td>{{ result.year }}</td>
+            <td>{{ result.principalAmount }}</td>
+            <td>{{ result.interestEarned }}</td>
+            <td>{{ result.amountAfterYear }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<h2 class="text-center my-4">All Applications</h2>
+
+<back></back>
+
+<div class="container my-5" *ngIf="applications.length === 0">
+  <h2 class="text-center my-5">No Application to Preview...!</h2>
+  <a routerLink="/application/account" class="center btn btn-dark">Apply</a>
+</div>
+
+<div *ngIf="applications.length > 0" class="application container mt-5">
+  <div ngbAccordion [closeOthers]="true" id="accordion">
+    <div *ngFor="let application of applications" ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button
+          ngbAccordionButton
+          class="d-flex justify-content-between"
+          aria-expanded="false"
+        >
+          <span>
+            <i class="fas fa-file-signature"></i>
+            {{ application.applicationType }}
+          </span>
+          <span
+            [ngClass]="{
+              'status-active': application.applicationStatus === 'Approved',
+              'status-inactive':
+                application.applicationStatus === 'Pending' ||
+                application.applicationStatus === 'Rejected'
+            }"
+          >
+            <i class="fas fa-info-circle" style="color: black"></i>
+            {{ application.applicationStatus | uppercase }}
+            <!-- <i class="fa-solid fa-angle-down mx-2"></i> -->
+          </span>
+        </button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ul class="list-unstyled">
+            <li>
+              <i class="fas fa-id-badge"></i> ID:
+              {{ application.applicationId }}
+            </li>
+            <li>
+              <i class="fas fa-file-signature"></i> Application Type:
+              {{ application.applicationType }}
+            </li>
+            <li>
+              <i class="fas fa-hashtag"></i> Application Number:
+              {{ application.applicationNumber }}
+            </li>
+            <li>
+              <i class="fas fa-calendar-alt"></i> Date of Application:
+              {{ application.dateOfApplication }}
+            </li>
+            <li *ngIf="application.ifsc">
+              <i class="fas fa-barcode"></i> Branch IFSC: {{ application.ifsc }}
+            </li>
+            <li>
+              <i class="fas fa-info-circle"></i> Status:
+              {{ application.applicationStatus }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

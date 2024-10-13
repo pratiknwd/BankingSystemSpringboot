@@ -1,0 +1,21 @@
+<back></back>
+<h2 class="text-center mt-5">Financial Tools</h2>
+<div class="container">
+  <div class="row" *ngFor="let tool of tools">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <i class="{{ tool.icon }}"></i>
+          <h5 class="card-title">{{ tool.title }}</h5>
+          <p class="card-text">{{ tool.description }}</p>
+          <a
+            *ngIf="tool.title !== 'Logout'"
+            [routerLink]="tool.link"
+            class="btn btn-primary"
+            >Calculate</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

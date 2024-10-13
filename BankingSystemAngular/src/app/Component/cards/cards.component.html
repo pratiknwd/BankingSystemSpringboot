@@ -1,0 +1,11 @@
+<!-- <app-master-cc></app-master-cc> -->
+<!-- <app-debit-card></app-debit-card> -->
+<div class="cross">
+    <img src="../../../assets/images/cross.svg" alt="" (click)="goBack()">
+</div>
+<ngb-carousel class="carousel">
+  <ng-template ngbSlide *ngFor="let card of Cards">
+    <app-debit-card *ngIf="card.cardType==='Debit'" [DebitCard]="card" [userName]="userName"></app-debit-card>
+    <app-master-cc *ngIf="card.cardType==='Credit'" [CreditCard]="card" [userName]="userName"></app-master-cc>
+  </ng-template>
+</ngb-carousel>

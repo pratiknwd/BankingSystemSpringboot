@@ -1,0 +1,139 @@
+.gstcalac {
+  margin: 40px;
+  padding: 40px;
+}
+
+.gstcalacheadline h1 {
+  font-size: 40px;
+  line-height: 50px;
+  color: #233253;
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+}
+
+.gstcalacheadline h1 .highlight {
+  color: red;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+.outer-box {
+  border: 1px solid black;
+  width: 100%;
+  min-height: 25vh;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-group,
+.dropdown-group {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.dropdown-group {
+  max-width: 400px;
+}
+
+input,
+select {
+  width: 60%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.third-row {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+}
+
+.capture-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.capture-button:hover {
+  background: #fc0328;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+}
+
+.warning-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 100px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.warning-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.result-table {
+  display: none; /* Initially hidden */
+  margin-top: 20px;
+}
+
+.result-table.show {
+  display: block; /* Show when class 'show' is added */
+}
+
+#gst-results {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#gst-results th,
+#gst-results td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#gst-results th {
+  background-color: #f2f2f2;
+}
+
+#gst-results tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#gst-results tbody tr:hover {
+  background-color: #e0e0e0;
+}

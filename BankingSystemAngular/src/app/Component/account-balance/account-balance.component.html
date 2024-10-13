@@ -1,0 +1,25 @@
+<back></back>
+
+<div class="balance-container">
+  <h1 class="text-center balance-title">Check Balance</h1>
+  <div class="account-balance-box">
+    <div class="top-section">
+      <select class="account-select" [(ngModel)]="selectedAccount">
+        <option value="">--Select Account Number--</option>
+        <option *ngFor="let account of accountNumbers" [value]="account">
+          {{ account }}
+        </option>
+      </select>
+      <button class="fetch-button" (click)="fetchBalance()">Fetch Balance</button>
+    </div>
+
+    <div class="account-details mt-4">
+      <p><strong>Account Number:</strong> {{ selectedAccount || "N/A" }}</p>
+      <p><strong>Balance:</strong> {{ balance | currency : "INR" }}</p>
+    </div>
+
+    <button class="fetch-button transaction mt-5" (click)="navigateToTransaction()">
+      Show Transactions
+    </button>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #f8f9fa;
+	font-family: 'Quicksand', sans-serif;
+	color: #000;
+}
+
+.navbar {
+	background-color: #000;
+	color: #fff;
+}
+
+.navbar .navbar-brand, .navbar .nav-link {
+	color: #fff;
+}
+
+.navbar .nav-link {
+	margin-right: 1rem;
+}
+
+.navbar .nav-link:hover {
+	color: #ccc;
+}
+
+.card {
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s, box-shadow 0.3s;
+	overflow: hidden;
+}
+
+.card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body h5 {
+	color: #000;
+}
+
+.card-body p {
+	color: #666;
+}
+
+.btn-primary {
+	background-color: #000;
+	border: none;
+	transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+	background-color: #333;
+}
+
+.fa {
+	margin-right: 0.5rem;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.col-md-4 {
+	flex: 0 0 30%;
+	max-width: 30%;
+	margin-bottom: 2rem;
+}
+
+@media ( max-width : 768px) {
+	.col-md-4 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}

@@ -1,0 +1,141 @@
+@charset "ISO-8859-1";
+
+.compoundcalc {
+	margin: 40px;
+	padding: 40px;
+}
+
+.ppfcalcheadline h1 {
+	font-size: 40px;
+	line-height: 50px;
+	color: #233253;
+	font-weight: bold;
+	text-align: left;
+	margin: 0;
+}
+
+.ppfcalcheadline h1 .highlight {
+	color: red;
+	padding: 0 5px;
+	border-radius: 3px;
+}
+
+.outer-box {
+	border: 1px solid black;
+	width: 100%;
+	min-height: 50vh;
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.first-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.input-group, .dropdown-group {
+	flex: 1;
+	min-width: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input, select {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.second-row {
+	margin-top: 50px;
+	margin-right: 500px;
+	display: flex;
+	gap: 20px;
+	justify-content: flex-start;
+}
+
+.investment-input {
+	width: 100%;
+	max-width: 300px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.third-row {
+	display: flex;
+	margin: 20px;
+	justify-content: center;
+}
+
+.capture-button {
+	padding: 10px 15px;
+	border: none;
+	border-radius: 4px;
+	background-color: red;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-top: 10px;
+}
+
+.capture-button:hover {
+	background: #fc0328;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transform: scale(1.03);
+}
+/* Style for the warning message */
+.warning-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 100px;
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.warning-message {
+	color: red;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+	
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    display: none;
+    
+     
+}
+
+.result-table th, .result-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.result-table th {
+    background-color: #f4f4f4;
+}
+

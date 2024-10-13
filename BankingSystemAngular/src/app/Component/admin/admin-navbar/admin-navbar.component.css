@@ -1,0 +1,40 @@
+.custom-navbar {
+  background: #343a40;
+  z-index: 1000;
+}
+
+.custom-navbar .navbar-brand i {
+  margin-right: 8px;
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff;
+  padding: 10px 15px;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #007bff;
+  background-color: #495057;
+  border-radius: 4px;
+}
+
+.custom-dropdown-menu {
+  background-color: #495057;
+}
+
+.custom-dropdown-menu .dropdown-item {
+  color: #ffffff;
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.custom-navbar .nav-item i {
+  margin-right: 8px;
+}
+
+.fa-bars {
+  cursor: pointer;
+}

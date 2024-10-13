@@ -1,0 +1,8 @@
+<ngb-alert
+  [type]="alertType"
+  [ngClass]="{ 'slide-in': showAlert, 'slide-out': !showAlert }"
+  [dismissible]="false"
+  *ngIf="showAlert"
+>
+  {{ alertMessage }}
+</ngb-alert>
